@@ -42,6 +42,7 @@ void Game::createRooms()
 
 	office->setExit("west", lab);
 	std::cout << "test" << std::endl;
+	player = new Player();
 	this->player->setCurrentRoom(outside);  // start game outside
 	std::cout << "test" << std::endl;
 }

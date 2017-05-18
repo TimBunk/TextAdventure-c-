@@ -24,7 +24,7 @@ private:
 	void printWelcome();
 	void printHelp();
 
-	player* player;
+	Player* player;
 	Parser parser;
 
 	Room* outside;

@@ -1,25 +1,25 @@
 #include "player.h"
 
 
-player::player()
+Player::Player()
 {
 }
 
-player::~player()
+Player::~Player()
 {
 }
 
-void player::setCurrentRoom(Room *room)
+void Player::setCurrentRoom(Room *room)
 {
 	currentRoom = room;
 }
 
-void player::describeRoom()
+void Player::describeRoom()
 {
 	std::cout << currentRoom->getLongDescription() << std::endl;
 }
 
-void player::goRoom(Command cmd)
+void Player::goRoom(Command cmd)
 {
 	if (!cmd.hasSecondWord()) {
 		// if there is no second word, we don't know where to go...

@@ -5,11 +5,11 @@
 #include "room.h"
 #include "command.h"
 
-class player
+class Player
 {
 public:
-	player();
-	~player();
+	Player();
+	~Player();
 	void setCurrentRoom(Room *room);
 	void describeRoom();
 	void goRoom(Command cmd);
