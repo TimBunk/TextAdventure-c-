@@ -46,9 +46,7 @@ void Game::createRooms()
 	lab->setExit("east", office);
 
 	office->setExit("west", lab);
-	std::cout << "test" << std::endl;
 	this->player->setCurrentRoom(outside);  // start game outside
-	std::cout << "test" << std::endl;
 }
 
 void Game::play()
@@ -59,7 +57,6 @@ void Game::play()
 	while ( !finished ) {
 		Command command = parser.getCommand();
 		finished = processCommand(command);
-		std::cout << player->IsAlive() << std::endl;
 		if (!finished && !player->IsAlive()) {
 			finished = true;
 		}
