@@ -9,6 +9,7 @@
 #include "command.h"
 #include "room.h"
 #include "player.h"
+#include "rlutil.h"
 
 class Game
 {

@@ -10,11 +10,18 @@ class Player
 public:
 	Player();
 	~Player();
+
 	void setCurrentRoom(Room *room);
 	void describeRoom();
 	void goRoom(Command cmd);
 
+	void PrintHealth();
+	void ApplyDamage(int amount);
+	void ApplyHeal(int amount);
+	bool IsAlive();
+
 private:
 	Room* currentRoom;
+	int health = 15;
 };
 

@@ -37,6 +37,36 @@ void Player::goRoom(Command cmd)
 	}
 	else {
 		currentRoom = nextRoom;
+		ApplyDamage(1);
 		std::cout << currentRoom->getLongDescription() << std::endl;
+	}
+}
+
+void Player::PrintHealth()
+{
+	std::cout << health << std::endl;
+}
+
+void Player::ApplyDamage(int amount)
+{
+	health -= amount;
+	std::cout << "You took " << amount << " damage, you're current health is now ";
+	PrintHealth();
+}
+
+void Player::ApplyHeal(int amount)
+{
+	health += amount;
+	std::cout << "You healed for " << amount; " , you're current health is now ";
+	PrintHealth();
+}
+
+bool Player::IsAlive()
+{
+	if (health > 0) {
+		return true;
+	}
+	else {
+		return false;
 	}
 }

@@ -8,6 +8,7 @@ CommandWords::CommandWords()
 	validCommands.push_back("quit");
 	validCommands.push_back("help");
 	validCommands.push_back("look");
+	validCommands.push_back("health");
 }
 
 CommandWords::~CommandWords()

@@ -2,11 +2,16 @@
 
 #include <iostream>
 #include <string>
+#include <stdio.h>
 
 #include "game.h"
 
 Game::Game()
 {
+	//system("COLOR 1e");
+	rlutil::setColor(rlutil::YELLOW);
+	//rlutil::setBackgroundColor(rlutil::BLUE);
+	player = new Player();
 	this->createRooms();
 }
 
@@ -42,7 +47,6 @@ void Game::createRooms()
 
 	office->setExit("west", lab);
 	std::cout << "test" << std::endl;
-	player = new Player();
 	this->player->setCurrentRoom(outside);  // start game outside
 	std::cout << "test" << std::endl;
 }
@@ -55,6 +59,10 @@ void Game::play()
 	while ( !finished ) {
 		Command command = parser.getCommand();
 		finished = processCommand(command);
+		std::cout << player->IsAlive() << std::endl;
+		if (!finished && !player->IsAlive()) {
+			finished = true;
+		}
 	}
 	std::cout << "Thank you for playing. Goodbye!" << std::endl;
 }
@@ -92,7 +100,7 @@ void Game::printWelcome()
 	std::cout << "Zuul is a new, incredibly boring adventure game." << std::endl;
 	std::cout << "Type 'help' if you need help." << std::endl;
 	std::cout << std::endl;
-	//player->describeRoom();
+	player->describeRoom();
 }
 
 void Game::printHelp()
