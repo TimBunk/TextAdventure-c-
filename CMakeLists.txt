@@ -25,6 +25,8 @@ IF(MAKE_TEXT)
       TextAdventure/room.h
       TextAdventure/player.cpp
       TextAdventure/player.h
+      TextAdventure/item.cpp
+      TextAdventure/item.h
       TextAdventure/rlutil.h
       )
 
