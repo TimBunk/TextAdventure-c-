@@ -33,6 +33,7 @@ private:
 	Room* pub;
 	Room* lab;
 	Room* office;
+	Room* basement;
 };
 
 #endif /* GAME_H */
