@@ -4,6 +4,7 @@
 #include <string>
 #include "room.h"
 #include "command.h"
+#include "backpack.h"
 
 class Player
 {
@@ -23,5 +24,6 @@ public:
 private:
 	Room* currentRoom;
 	int health = 15;
+	Backpack* backpack;
 };
 

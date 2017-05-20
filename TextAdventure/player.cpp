@@ -3,6 +3,7 @@
 
 Player::Player()
 {
+	backpack = new Backpack(20);
 }
 
 Player::~Player()
