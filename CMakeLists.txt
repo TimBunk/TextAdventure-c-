@@ -29,6 +29,8 @@ IF(MAKE_TEXT)
       TextAdventure/item.h
       TextAdventure/backpack.cpp
       TextAdventure/backpack.h
+      TextAdventure/key.cpp
+      TextAdventure/key.h
       TextAdventure/rlutil.h
       )
 
