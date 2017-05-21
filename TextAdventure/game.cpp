@@ -87,11 +87,11 @@ bool Game::processCommand(Command cmd)
 	} else if (commandWord.compare("go") == 0) {
 		this->player->goRoom(cmd);
 	} else if (commandWord.compare("quit") == 0) {
-		//wantToQuit = quit(command);
 		wantToQuit = true;
-	}
-	else if (commandWord.compare("look") == 0) {
+	} else if (commandWord.compare("look") == 0) {
 		player->describeRoom();
+	} else if (commandWord.compare("health") == 0) {
+		player->PrintHealth();
 	}
 
 	return wantToQuit;
