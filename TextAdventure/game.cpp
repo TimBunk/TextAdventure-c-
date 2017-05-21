@@ -22,6 +22,7 @@ Game::~Game()
 	delete pub;
 	delete lab;
 	delete office;
+	delete basement;
 }
 
 void Game::createRooms()
