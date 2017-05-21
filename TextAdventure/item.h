@@ -1,6 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <iostream>
 #include <string>
 
 class Item
@@ -10,6 +11,7 @@ public:
 	~Item();
 	std::string GetName();
 	int GetWeight();
+	std::string GetInfo();
 
 private:
 	std::string name;

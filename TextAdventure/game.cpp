@@ -10,8 +10,10 @@ Game::Game()
 {
 	rlutil::setColor(rlutil::YELLOW);
 	player = new Player();
-	apple = new Item("apple",1);
+	apple = new Item("apple",11);
 	player->AddItem(*apple);
+	player->AddItem(*apple);
+	player->PrintBackpackInfo();
 	this->createRooms();
 }
 

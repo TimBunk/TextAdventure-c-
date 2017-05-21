@@ -25,7 +25,8 @@ public:
 	void ApplyDamage(int amount);
 	void ApplyHeal(int amount);
 	bool IsAlive();
-
+	
+	void PrintBackpackInfo();
 	void AddItem(Item item);
 
 private:

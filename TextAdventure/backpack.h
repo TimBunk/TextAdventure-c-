@@ -14,6 +14,8 @@ public:
 	~Backpack();
 
 	void Add(Item item);
+	int GetCurrentWeight();
+	void PrintInventory();
 
 private:
 	int capacity;

@@ -72,6 +72,11 @@ bool Player::IsAlive()
 	}
 }
 
+void Player::PrintBackpackInfo()
+{
+	backpack->PrintInventory();
+}
+
 void Player::AddItem(Item item)
 {
 	backpack->Add(item);

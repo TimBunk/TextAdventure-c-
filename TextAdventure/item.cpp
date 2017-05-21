@@ -20,3 +20,9 @@ int Item::GetWeight()
 {
 	return weight;
 }
+
+std::string Item::GetInfo()
+{
+	std::string info = GetName() + ", weight: " + std::to_string(GetWeight());
+	return info;
+}
