@@ -1,5 +1,10 @@
+#ifndef BACKPACK_H
+#define BACKPACK_H
+
+#include <iostream>
 #include <string>
 #include <vector>
+
 #include "item.h"
 
 class Backpack
@@ -14,3 +19,5 @@ private:
 	int capacity;
 	std::vector<Item> inventory;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef ITEM_H
+#define ITEM_H
+
 #include <string>
 
 class Item
@@ -11,7 +14,6 @@ public:
 private:
 	std::string name;
 	int weight;
-
-protected:
-
 };
+
+#endif

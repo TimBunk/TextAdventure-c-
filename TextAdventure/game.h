@@ -9,6 +9,7 @@
 #include "command.h"
 #include "room.h"
 #include "player.h"
+#include "item.h"
 #include "rlutil.h"
 
 class Game
@@ -16,8 +17,8 @@ class Game
 public:
 	Game();
 	virtual ~Game();
-
 	void play();
+	Item* apple;
 
 private:
 	void createRooms();

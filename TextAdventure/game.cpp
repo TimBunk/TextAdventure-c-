@@ -8,10 +8,10 @@
 
 Game::Game()
 {
-	//system("COLOR 1e");
 	rlutil::setColor(rlutil::YELLOW);
-	//rlutil::setBackgroundColor(rlutil::BLUE);
 	player = new Player();
+	apple = new Item("apple",1);
+	player->AddItem(*apple);
 	this->createRooms();
 }
 

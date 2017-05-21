@@ -1,10 +1,15 @@
 #pragma once
 
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <iostream>
 #include <string>
+
 #include "room.h"
 #include "command.h"
 #include "backpack.h"
+#include "item.h"
 
 class Player
 {
@@ -21,9 +26,12 @@ public:
 	void ApplyHeal(int amount);
 	bool IsAlive();
 
+	void AddItem(Item item);
+
 private:
 	Room* currentRoom;
 	int health = 15;
 	Backpack* backpack;
 };
 
+#endif

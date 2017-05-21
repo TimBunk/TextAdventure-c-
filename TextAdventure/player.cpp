@@ -71,3 +71,8 @@ bool Player::IsAlive()
 		return false;
 	}
 }
+
+void Player::AddItem(Item item)
+{
+	backpack->Add(item);
+}
