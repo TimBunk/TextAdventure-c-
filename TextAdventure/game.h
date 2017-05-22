@@ -10,6 +10,7 @@
 #include "room.h"
 #include "player.h"
 #include "item.h"
+#include "key.h"
 #include "rlutil.h"
 
 class Game
@@ -18,7 +19,7 @@ public:
 	Game();
 	virtual ~Game();
 	void play();
-	Item* apple;
+	Key* key;
 
 private:
 	void createRooms();

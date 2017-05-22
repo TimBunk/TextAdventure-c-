@@ -10,9 +10,9 @@ Game::Game()
 {
 	rlutil::setColor(rlutil::YELLOW);
 	player = new Player();
-	apple = new Item("apple",11);
-	player->AddItem(*apple);
-	player->AddItem(*apple);
+	key = new Key("greenkey", 1);
+	std::cout << key->GetName() << std::endl;
+	player->AddItem(*key);
 	player->PrintBackpackInfo();
 	this->createRooms();
 }

@@ -1,18 +1,22 @@
-#ifndef KEY_H;
-#define KEY_H;
+#ifndef KEY_H
+#define KEY_H
 
 #include <iostream>
 #include <string>
 
-class Key {
+#include "room.h"
+#include "item.h"
 
+class Key : public Item
+{	
+	using Item::Item;
 	public:
-
-		Key();
+		Key(std::string name, int weight);// : Item(name, weight);
+		//Key(std::string name, int weight);
+		
 		~Key();
-
+		void printff();
 	private:
 
-
 };
-#endif // !KEY_H;
+#endif

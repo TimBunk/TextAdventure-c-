@@ -37,3 +37,14 @@ std::string Room::getExitString()
 
 	return returnString;
 }
+
+/*void Room::LockRoom(Key key)
+{
+	lock = true;
+	this->key = &key;
+}*/
+
+bool Room::CheckLock()
+{
+	return lock;
+}
