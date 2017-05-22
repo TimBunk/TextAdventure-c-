@@ -10,12 +10,12 @@
 class Key : public Item
 {	
 	using Item::Item;
+
 	public:
-		Key(std::string name, int weight);// : Item(name, weight);
-		//Key(std::string name, int weight);
-		
+
+		Key(std::string name, int weight);
 		~Key();
-		void printff();
+
 	private:
 
 };

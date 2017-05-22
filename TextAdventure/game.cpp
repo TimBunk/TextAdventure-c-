@@ -10,11 +10,13 @@ Game::Game()
 {
 	rlutil::setColor(rlutil::YELLOW);
 	player = new Player();
-	key = new Key("greenkey", 1);
-	std::cout << key->GetName() << std::endl;
-	player->AddItem(*key);
-	player->PrintBackpackInfo();
+	
 	this->createRooms();
+	this->CreateItems();
+
+	player->AddItem(*greenkey);
+	player->AddItem(*bluekey);
+	player->PrintBackpackInfo();
 }
 
 Game::~Game()
@@ -54,6 +56,13 @@ void Game::createRooms()
 
 	office->setExit("west", lab);
 	this->player->setCurrentRoom(outside);  // start game outside
+}
+
+void Game::CreateItems()
+{
+	// create items
+	greenkey = new Key("greenkey", 1);
+	bluekey = new Key("bluekey", 1);
 }
 
 void Game::play()

@@ -19,10 +19,10 @@ public:
 	Game();
 	virtual ~Game();
 	void play();
-	Key* key;
 
 private:
 	void createRooms();
+	void CreateItems();
 	bool processCommand(Command cmd);
 	void printWelcome();
 	void printHelp();
@@ -30,12 +30,17 @@ private:
 	Player* player;
 	Parser parser;
 
+	//list with rooms
 	Room* outside;
 	Room* theatre;
 	Room* pub;
 	Room* lab;
 	Room* office;
 	Room* basement;
+
+	//list with items
+	Key* greenkey;
+	Key* bluekey;
 };
 
 #endif /* GAME_H */
