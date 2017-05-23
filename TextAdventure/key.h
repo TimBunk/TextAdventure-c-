@@ -13,10 +13,12 @@ class Key : public Item
 
 	public:
 
-		Key(std::string name, int weight);
+		Key(Room keyRoom, std::string name, int weight);
 		~Key();
 
-	private:
+		Room GetKeyRoom();
 
+	private:
+		Room* keyRoom;
 };
 #endif

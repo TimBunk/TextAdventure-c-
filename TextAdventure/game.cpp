@@ -14,6 +14,7 @@ Game::Game()
 	this->createRooms();
 	this->CreateItems();
 
+	std::cout << greenkey->GetName() << std::endl;
 	player->AddItem(*greenkey);
 	player->AddItem(*bluekey);
 	player->PrintBackpackInfo();
@@ -61,8 +62,8 @@ void Game::createRooms()
 void Game::CreateItems()
 {
 	// create items
-	greenkey = new Key("greenkey", 1);
-	bluekey = new Key("bluekey", 1);
+	greenkey = new Key(*theatre, "greenkey", 1);
+	bluekey = new Key(*pub, "bluekey", 1);
 }
 
 void Game::play()

@@ -14,6 +14,9 @@ public:
 	std::string GetInfo();
 
 private:
+	
+
+protected:
 	std::string name;
 	int weight;
 };
