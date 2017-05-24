@@ -36,9 +36,9 @@ void Player::goRoom(Command cmd)
 	if (nextRoom == NULL) {
 		std::cout << "There is no door!" << std::endl;
 	}
-	/*else if (nextRoom->CheckLock) {
+	else if (nextRoom->CheckLock()) {
 		std::cout << "This door is locked" << std::endl;
-	}*/
+	}
 	else {
 		currentRoom = nextRoom;
 		ApplyDamage(1);

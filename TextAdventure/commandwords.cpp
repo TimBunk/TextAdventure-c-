@@ -9,6 +9,7 @@ CommandWords::CommandWords()
 	validCommands.push_back("help");
 	validCommands.push_back("look");
 	validCommands.push_back("health");
+	validCommands.push_back("backpack");
 }
 
 CommandWords::~CommandWords()

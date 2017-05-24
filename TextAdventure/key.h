@@ -4,21 +4,21 @@
 #include <iostream>
 #include <string>
 
-#include "room.h"
+//#include "room.h"
 #include "item.h"
+
+//class Room;
 
 class Key : public Item
 {	
-	using Item::Item;
+	//using Item::Item;
 
 	public:
 
-		Key(Room keyRoom, std::string name, int weight);
+		Key(std::string name, int weight);
 		~Key();
 
-		Room GetKeyRoom();
-
 	private:
-		Room* keyRoom;
+		std::string roomName;
 };
 #endif

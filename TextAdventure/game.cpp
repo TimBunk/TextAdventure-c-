@@ -14,10 +14,10 @@ Game::Game()
 	this->createRooms();
 	this->CreateItems();
 
-	std::cout << greenkey->GetName() << std::endl;
+	//std::cout << greenkey->GetName() << std::endl;
 	player->AddItem(*greenkey);
-	player->AddItem(*bluekey);
-	player->PrintBackpackInfo();
+	/*player->AddItem(*bluekey);
+	player->PrintBackpackInfo();*/
 }
 
 Game::~Game()
@@ -62,8 +62,9 @@ void Game::createRooms()
 void Game::CreateItems()
 {
 	// create items
-	greenkey = new Key(*theatre, "greenkey", 1);
-	bluekey = new Key(*pub, "bluekey", 1);
+	
+	greenkey = new Key("greenkey", 1);
+	bluekey = new Key("bluekey", 1);
 }
 
 void Game::play()
@@ -102,6 +103,8 @@ bool Game::processCommand(Command cmd)
 		player->describeRoom();
 	} else if (commandWord.compare("health") == 0) {
 		player->PrintHealth();
+	} else if (commandWord.compare("backpack") == 0) {
+		player->PrintBackpackInfo();
 	}
 
 	return wantToQuit;

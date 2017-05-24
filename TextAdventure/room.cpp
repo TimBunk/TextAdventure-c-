@@ -38,11 +38,19 @@ std::string Room::getExitString()
 	return returnString;
 }
 
-/*void Room::LockRoom(Key key)
+void Room::LockRoom(Key key)
 {
 	lock = true;
 	this->key = &key;
-}*/
+}
+
+void Room::UnlockRoom(Key key)
+{
+	if (this->key == &key) {
+		std::cout << "test" << std::endl;
+		lock = false;
+	}
+}
 
 bool Room::CheckLock()
 {

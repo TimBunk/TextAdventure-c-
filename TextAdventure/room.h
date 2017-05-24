@@ -7,7 +7,7 @@
 #include <map>
 #include <string>
 
-//#include "key.h"
+#include "key.h"
 
 class Room
 {
@@ -21,12 +21,14 @@ public:
 	std::string getLongDescription() { return "You are " + description + '\n' + getExitString(); }
 	std::string getExitString();
 	
-	//void LockRoom(Key key);
+	void LockRoom(Key key);
+	void UnlockRoom(Key key);
 	bool CheckLock();
 
 private:
 	std::string description;
 	std::map<std::string, Room*> exits;
+	Key* key;
 	bool lock = false;
 };
 
