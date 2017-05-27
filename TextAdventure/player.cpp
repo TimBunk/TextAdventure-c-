@@ -18,7 +18,12 @@ void Player::setCurrentRoom(Room *room)
 
 void Player::describeRoom()
 {
-	std::cout << currentRoom->getLongDescription() << std::endl;
+	std::cout << currentRoom->getShortDescription() << std::endl;
+	if (currentRoom->ContainsItems()) {
+		std::cout << "You see some items lying around : ";
+		currentRoom->PrintItems();
+	}
+	std::cout << currentRoom->getExitString() << std::endl;
 }
 
 void Player::goRoom(Command cmd)
@@ -43,12 +48,7 @@ void Player::goRoom(Command cmd)
 	else {
 		currentRoom = nextRoom;
 		ApplyDamage(1);
-		std::cout << currentRoom->getShortDescription() << std::endl;
-		if (currentRoom->ContainsItems()) {
-			std::cout << "You see some items lying around : ";
-			currentRoom->PrintItems();
-		}
-		std::cout << currentRoom->getExitString() << std::endl;
+		describeRoom();
 	}
 }
 
@@ -120,4 +120,27 @@ void Player::PrintBackpackInfo()
 void Player::AddItem(Item item)
 {
 	backpack->Add(item);
+}
+
+void Player::PickUp(Command cmd)
+{
+	if (!cmd.hasSecondWord()) {
+		// if there is no second word, we don't know what to pickup...
+		std::cout << "What do you want to pickup?" << std::endl;
+		return;
+	}
+
+	std::string nameItem = cmd.getSecondWord();
+	Item item = currentRoom->GetItem(nameItem);
+
+	if (item.GetName().compare("nothing") == 0) {
+		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
+	}
+	else if (backpack->GetCurrentWeight() + item.GetWeight() <= backpack->GetCapacity()) {
+		backpack->Add(currentRoom->GetItem(item.GetName()));
+		currentRoom->RemoveItem(item.GetName());
+	}
+	else {
+		backpack->PrintOverCapacity(item);
+	}
 }

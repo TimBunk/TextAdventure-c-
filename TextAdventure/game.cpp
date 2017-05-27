@@ -115,6 +115,8 @@ bool Game::processCommand(Command cmd)
 		player->PrintBackpackInfo();
 	} else if (commandWord.compare("unlock") == 0) {
 		player->UnlockRoom(cmd);
+	} else if (commandWord.compare("pickup") == 0) {
+		player->PickUp(cmd);
 	}
 	return wantToQuit;
 }

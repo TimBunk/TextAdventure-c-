@@ -17,6 +17,8 @@ public:
 	void Add(Item item);
 	void Remove(std::string name);
 	int GetCurrentWeight();
+	int GetCapacity();
+	void PrintOverCapacity(Item item);
 	Item GetItem(std::string name);
 	void PrintInventory();
 

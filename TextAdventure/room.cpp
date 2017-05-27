@@ -68,6 +68,29 @@ void Room::PlaceItem(Item item)
 	std::cout << "You placed " << item.GetName() << std::endl;
 }
 
+void Room::RemoveItem(std::string nameItem)
+{
+	for (int i = 0; i < items.size(); i++) {
+		if (items[i].GetName().compare(nameItem) == 0) {
+			items.erase(items.begin() + i);
+		}
+	}
+}
+
+Item Room::GetItem(std::string nameItem)
+{
+	Item *item;
+	for (int i = 0; i < items.size(); i++) {
+		if (items[i].GetName().compare(nameItem) == 0) {
+			item = &items[i];
+			return *item;
+		}
+	}
+	// if item is not found return a item with name nothing
+	item = new Item("nothing", 0);
+	return *item;
+}
+
 bool Room::ContainsItems()
 {
 	if (items.size() >= 1) {

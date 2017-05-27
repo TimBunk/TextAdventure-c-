@@ -31,6 +31,8 @@ public:
 
 	
 	void PlaceItem(Item item);
+	void RemoveItem(std::string nameItem);
+	Item GetItem(std::string nameItem);
 	bool ContainsItems();
 	void PrintItems();
 

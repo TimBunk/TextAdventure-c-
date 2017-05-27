@@ -30,6 +30,7 @@ public:
 	
 	void PrintBackpackInfo();
 	void AddItem(Item item);
+	void PickUp(Command cmd);
 
 private:
 	Room* currentRoom;

@@ -18,7 +18,7 @@ void Backpack::Add(Item item)
 		std::cout << "New inventory capacity = " << GetCurrentWeight() << "/" << capacity << std::endl;
 	}
 	else {
-		std::cout << item.GetName() << " weights " << item.GetWeight() << " and your inventories capacity = " << GetCurrentWeight() << "/" << capacity << std::endl;
+		PrintOverCapacity(item);
 	}
 }
 
@@ -39,6 +39,16 @@ int Backpack::GetCurrentWeight()
 		totalWeight += inventory[i].GetWeight();
 	}
 	return totalWeight;
+}
+
+int Backpack::GetCapacity()
+{
+	return capacity;
+}
+
+void Backpack::PrintOverCapacity(Item item)
+{
+	std::cout << item.GetName() << " weights " << item.GetWeight() << " and your inventories capacity = " << GetCurrentWeight() << "/" << capacity << std::endl;
 }
 
 Item Backpack::GetItem(std::string name)
