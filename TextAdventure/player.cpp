@@ -8,6 +8,7 @@ Player::Player()
 
 Player::~Player()
 {
+	delete backpack;
 }
 
 void Player::setCurrentRoom(Room *room)
