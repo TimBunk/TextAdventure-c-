@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "item.h"
+#include "key.h"
 
 class Backpack
 {
@@ -14,7 +15,9 @@ public:
 	~Backpack();
 
 	void Add(Item item);
+	void Remove(std::string name);
 	int GetCurrentWeight();
+	Item GetItem(std::string name);
 	void PrintInventory();
 
 private:

@@ -38,16 +38,22 @@ std::string Room::getExitString()
 	return returnString;
 }
 
-void Room::LockRoom(Key key)
+void Room::LockRoom(Key *key)
 {
 	lock = true;
-	this->key = &key;
+	this->key = key;
+	std::cout << this->key->GetName() << std::endl;
 }
 
-void Room::UnlockRoom(Key key)
+std::string Room::GetKeyName()
 {
-	if (this->key == &key) {
-		std::cout << "test" << std::endl;
+	return this->key->GetName();
+}
+
+void Room::UnlockRoom(std::string keyName)
+{
+	if (this->key->GetName().compare(keyName) == 0) {
+		std::cout << "You unloced the room... ";
 		lock = false;
 	}
 }

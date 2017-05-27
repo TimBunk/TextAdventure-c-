@@ -19,6 +19,6 @@ class Key : public Item
 		~Key();
 
 	private:
-		std::string roomName;
+
 };
 #endif

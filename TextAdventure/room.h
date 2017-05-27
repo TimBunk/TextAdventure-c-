@@ -21,14 +21,15 @@ public:
 	std::string getLongDescription() { return "You are " + description + '\n' + getExitString(); }
 	std::string getExitString();
 	
-	void LockRoom(Key key);
-	void UnlockRoom(Key key);
+	void LockRoom(Key *key);
+	std::string GetKeyName();
+	void UnlockRoom(std::string keyName);
 	bool CheckLock();
 
 private:
 	std::string description;
 	std::map<std::string, Room*> exits;
-	Key* key;
+	Key *key;
 	bool lock = false;
 };
 

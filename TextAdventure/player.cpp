@@ -37,12 +37,43 @@ void Player::goRoom(Command cmd)
 		std::cout << "There is no door!" << std::endl;
 	}
 	else if (nextRoom->CheckLock()) {
-		std::cout << "This door is locked" << std::endl;
+		std::cout << "This door is locked, it requires a " << nextRoom->GetKeyName() << std::endl;
 	}
 	else {
 		currentRoom = nextRoom;
 		ApplyDamage(1);
 		std::cout << currentRoom->getLongDescription() << std::endl;
+	}
+}
+
+void Player::UnlockRoom(Command cmd)
+{
+	if (!cmd.hasSecondWord()) {
+		// if there is no second word, we don't know what to unlock...
+		std::cout << "Unlock what?" << std::endl;
+		return;
+	}
+
+	std::string direction = cmd.getSecondWord();
+
+	Room* nextRoom = currentRoom->getExit(direction);
+
+	if (nextRoom == NULL) {
+		std::cout << "There is no door!" << std::endl;
+	}
+	else if (nextRoom->CheckLock()) {
+		Item key = backpack->GetItem(nextRoom->GetKeyName());
+		if (key.GetName().compare("nothing") != 0) {
+			nextRoom->UnlockRoom(key.GetName());
+			std::cout << " but the " << key.GetName() <<" broke" << std::endl;
+			backpack->Remove(key.GetName());
+		}
+		else {
+			std::cout << "This door requires a " << nextRoom->GetKeyName() << std::endl;
+		}
+	}
+	else {
+		std::cout << "This door is already unlocked" << std::endl;
 	}
 }
 

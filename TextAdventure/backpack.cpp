@@ -22,6 +22,16 @@ void Backpack::Add(Item item)
 	}
 }
 
+void Backpack::Remove(std::string name)
+{
+	for (int i = 0; i < inventory.size(); i++) {
+		if (inventory[i].GetName().compare(name) == 0) {
+			std::cout << "Removed "<< inventory[i].GetName() << " from inventory" << std::endl;
+			inventory.erase(inventory.begin() + i);
+		}
+	}
+}
+
 int Backpack::GetCurrentWeight()
 {
 	int totalWeight = 0;
@@ -29,6 +39,20 @@ int Backpack::GetCurrentWeight()
 		totalWeight += inventory[i].GetWeight();
 	}
 	return totalWeight;
+}
+
+Item Backpack::GetItem(std::string name)
+{
+	Item *item;
+	for (int i = 0; i < inventory.size(); i++) {
+		if (inventory[i].GetName().compare(name) == 0) {
+			item = &inventory[i];
+			return *item;
+		}
+	}
+	// if item is not found return a item with name nothing
+	item = new Item("nothing", 0);
+	return *item;
 }
 
 void Backpack::PrintInventory()

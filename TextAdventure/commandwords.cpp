@@ -10,6 +10,7 @@ CommandWords::CommandWords()
 	validCommands.push_back("look");
 	validCommands.push_back("health");
 	validCommands.push_back("backpack");
+	validCommands.push_back("unlock");
 }
 
 CommandWords::~CommandWords()

@@ -10,6 +10,7 @@
 #include "command.h"
 #include "backpack.h"
 #include "item.h"
+#include "key.h"
 
 class Player
 {
@@ -20,6 +21,7 @@ public:
 	void setCurrentRoom(Room *room);
 	void describeRoom();
 	void goRoom(Command cmd);
+	void UnlockRoom(Command cmd);
 
 	void PrintHealth();
 	void ApplyDamage(int amount);
