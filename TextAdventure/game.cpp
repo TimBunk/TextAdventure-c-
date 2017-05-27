@@ -68,6 +68,7 @@ void Game::CreateItems()
 	greenkey = new Key("greenkey", 6);
 	theatre->LockRoom(greenkey);
 	bluekey = new Key("bluekey", 1);
+	pub->PlaceItem(*bluekey);
 }
 
 void Game::play()

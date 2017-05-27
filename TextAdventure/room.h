@@ -6,8 +6,10 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <vector>
 
 #include "key.h"
+#include "item.h"
 
 class Room
 {
@@ -25,6 +27,9 @@ public:
 	std::string GetKeyName();
 	void UnlockRoom(std::string keyName);
 	bool CheckLock();
+
+	std::vector<Item> items;
+	void PlaceItem(Item item);
 
 private:
 	std::string description;

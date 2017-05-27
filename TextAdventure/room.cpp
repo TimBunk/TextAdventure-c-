@@ -61,3 +61,9 @@ bool Room::CheckLock()
 {
 	return lock;
 }
+
+void Room::PlaceItem(Item item)
+{
+	items.push_back(item);
+	std::cout << "You placed " << item.GetName() << std::endl;
+}
