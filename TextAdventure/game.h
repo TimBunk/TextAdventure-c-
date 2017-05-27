@@ -41,6 +41,8 @@ private:
 	//list with items
 	Key* greenkey;
 	Key* bluekey;
+	Item* apple;
+	Item* mobile;
 };
 
 #endif /* GAME_H */

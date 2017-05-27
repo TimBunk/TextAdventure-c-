@@ -67,3 +67,26 @@ void Room::PlaceItem(Item item)
 	items.push_back(item);
 	std::cout << "You placed " << item.GetName() << std::endl;
 }
+
+bool Room::ContainsItems()
+{
+	if (items.size() >= 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void Room::PrintItems()
+{
+	for (int i = 0; i < items.size(); i++) {
+		std::cout << items[i].GetName();
+		if (i + 1 != items.size()) {
+			std::cout << ", ";
+		}
+		else {
+			std::cout << "" << std::endl;
+		}
+	}
+}

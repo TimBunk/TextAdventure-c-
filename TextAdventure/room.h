@@ -21,6 +21,7 @@ public:
 	Room* getExit(std::string direction);
 
 	std::string getLongDescription() { return "You are " + description + '\n' + getExitString(); }
+	std::string getShortDescription() { return "You are " + description; }
 	std::string getExitString();
 	
 	void LockRoom(Key *key);
@@ -28,14 +29,19 @@ public:
 	void UnlockRoom(std::string keyName);
 	bool CheckLock();
 
-	std::vector<Item> items;
+	
 	void PlaceItem(Item item);
+	bool ContainsItems();
+	void PrintItems();
 
 private:
 	std::string description;
 	std::map<std::string, Room*> exits;
+
 	Key *key;
 	bool lock = false;
+	
+	std::vector<Item> items;
 };
 
 #endif /* ROOM_H */

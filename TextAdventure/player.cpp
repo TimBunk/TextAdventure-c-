@@ -43,7 +43,12 @@ void Player::goRoom(Command cmd)
 	else {
 		currentRoom = nextRoom;
 		ApplyDamage(1);
-		std::cout << currentRoom->getLongDescription() << std::endl;
+		std::cout << currentRoom->getShortDescription() << std::endl;
+		if (currentRoom->ContainsItems()) {
+			std::cout << "You see some items lying around : ";
+			currentRoom->PrintItems();
+		}
+		std::cout << currentRoom->getExitString() << std::endl;
 	}
 }
 
