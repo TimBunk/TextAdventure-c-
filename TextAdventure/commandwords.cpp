@@ -12,6 +12,7 @@ CommandWords::CommandWords()
 	validCommands.push_back("backpack");
 	validCommands.push_back("unlock");
 	validCommands.push_back("pickup");
+	validCommands.push_back("drop");
 }
 
 CommandWords::~CommandWords()

@@ -30,6 +30,7 @@ public:
 	
 	void PrintBackpackInfo();
 	void AddItem(Item item);
+	void DropItem(Command cmd);
 	void PickUp(Command cmd);
 
 private:

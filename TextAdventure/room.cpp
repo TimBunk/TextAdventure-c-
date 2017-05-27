@@ -65,7 +65,6 @@ bool Room::CheckLock()
 void Room::PlaceItem(Item item)
 {
 	items.push_back(item);
-	std::cout << "You placed " << item.GetName() << std::endl;
 }
 
 void Room::RemoveItem(std::string nameItem)

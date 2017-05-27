@@ -122,6 +122,27 @@ void Player::AddItem(Item item)
 	backpack->Add(item);
 }
 
+void Player::DropItem(Command cmd)
+{
+	if (!cmd.hasSecondWord()) {
+		// if there is no second word, we don't know what to drop...
+		std::cout << "What do you want to drop?" << std::endl;
+		return;
+	}
+
+	std::string nameItem = cmd.getSecondWord();
+	Item item = backpack->GetItem(nameItem);
+
+	if (item.GetName().compare("nothing") == 0) {
+		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
+	}
+	else {
+		currentRoom->PlaceItem(item);
+		std::cout << "You dropped the " << item.GetName() << std::endl;
+		backpack->Remove(item.GetName());
+	}
+}
+
 void Player::PickUp(Command cmd)
 {
 	if (!cmd.hasSecondWord()) {
