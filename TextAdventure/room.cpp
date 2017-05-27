@@ -42,7 +42,6 @@ void Room::LockRoom(Key *key)
 {
 	lock = true;
 	this->key = key;
-	std::cout << this->key->GetName() << std::endl;
 }
 
 std::string Room::GetKeyName()
