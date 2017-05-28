@@ -92,7 +92,7 @@ void Game::createRooms()
 	playground->setExit("north", mainStreet);
 	playground->setExit("west", willowStreet2);
 
-	shed->setExit("north", mainStreet2);
+	shed->setExit("south", mainStreet2);
 
 	ridgeRoad->setExit("north", parkingArea);
 	ridgeRoad->setExit("south", willowStreet);
@@ -138,6 +138,7 @@ void Game::CreateItems()
 	bluekey = new Key("bluekey", 1);
 	apple = new Item("apple", 1);
 	mobile = new Item("mobile", 2);
+	pub->PlaceItem(*mobile);
 }
 
 void Game::play()

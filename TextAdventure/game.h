@@ -31,12 +31,26 @@ private:
 	Parser parser;
 
 	//list with rooms
-	Room* outside;
-	Room* theatre;
-	Room* pub;
-	Room* lab;
-	Room* office;
+	Room* house;
 	Room* basement;
+	Room* garage;
+	Room* neighboursHouse;
+	Room* willowStreet;
+	Room* willowStreet2;
+	Room* playground;
+	Room* shed;
+	Room* ridgeRoad;
+	Room* mainStreet;
+	Room* mainStreet2;
+	Room* shore;
+	Room* weaponStore;
+	Room* parkingArea;
+	Room* park;
+	Room* abandondedHouse;
+	Room* pharmacy;
+	Room* backyard;
+	Room* sea;
+
 
 	//list with items
 	Key* greenkey;
