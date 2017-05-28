@@ -126,8 +126,19 @@ bool Game::processCommand(Command cmd)
 void Game::printWelcome()
 {
 	std::cout << std::endl;
-	std::cout << "Welcome to Zuul!" << std::endl;
-	std::cout << "Zuul is a new, incredibly boring adventure game." << std::endl;
+	std::cout << "Welcome to EscapeTheZombies!" << std::endl;
+	std::cout << "EscapeTheZombies is a new, text adventure game." << std::endl;
+	
+	std::cout << std::endl;
+	std::cout << "It is early in the morning you just woke up and hear someone knocking really loudly on you're front door." << std::endl;
+	std::cout << "You look through the window and see a zombie standing in front of you're door!" << std::endl;
+	std::cout << "Rather quikly you find out that there is a zombie apocalypse going on." << std::endl;
+	std::cout << "You're goal is to escape from the zombies." << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "NOTE! When confronting a zombie you have to kill him, otherwise the zombie will attack you and you take damage and start bleeding!" << std::endl;
+	std::cout << "Zombies will respawn after you travelled 3 times to another location" << std::endl;
+
 	std::cout << "Type 'help' if you need help." << std::endl;
 	std::cout << std::endl;
 	player->describeRoom();
@@ -136,7 +147,7 @@ void Game::printWelcome()
 void Game::printHelp()
 {
 	std::cout << "You are lost. You are alone. You wander" << std::endl;
-	std::cout << "around at the university." << std::endl;
+	std::cout << "around in Groningen." << std::endl;
 	std::cout << std::endl;
 	std::cout << "Your command words are:" << std::endl;
 	parser.showCommands();
