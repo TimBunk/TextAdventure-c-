@@ -31,6 +31,8 @@ IF(MAKE_TEXT)
       TextAdventure/backpack.h
       TextAdventure/key.cpp
       TextAdventure/key.h
+      TextAdventure/medicine.cpp
+      TextAdventure/medicine.h
       TextAdventure/rlutil.h
       )
 
