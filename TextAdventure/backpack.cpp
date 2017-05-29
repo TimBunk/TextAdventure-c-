@@ -26,7 +26,7 @@ void Backpack::Remove(std::string name)
 {
 	for (int i = 0; i < inventory.size(); i++) {
 		if (inventory[i].GetName().compare(name) == 0) {
-			std::cout << "Removed "<< inventory[i].GetName() << " from inventory" << std::endl;
+			std::cout << "New inventory capacity = "<< GetCurrentWeight() << "/" << capacity << std::endl;
 			inventory.erase(inventory.begin() + i);
 		}
 	}

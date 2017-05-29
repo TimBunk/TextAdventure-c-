@@ -135,9 +135,13 @@ void Game::CreateItems()
 {
 	// create items
 	greenkey = new Key("greenkey", 6);
+	garage->LockRoom(greenkey);
 	bluekey = new Key("bluekey", 1);
+	house->PlaceItem(*bluekey);
 	apple = new Item("apple", 1);
+	house->PlaceItem(*apple);
 	mobile = new Item("mobile", 2);
+	garage->PlaceItem(*mobile);
 }
 
 void Game::play()
