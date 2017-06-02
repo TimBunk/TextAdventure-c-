@@ -15,7 +15,7 @@ Game::Game()
 	this->CreateItems();
 
 	player->AddItem(*greenkey);
-	//player->AddItem(*bluekey);
+	player->AddItem(*bandage);
 }
 
 Game::~Game()
@@ -44,6 +44,7 @@ Game::~Game()
 
 	delete greenkey;
 	delete bluekey;
+	delete bandage;
 }
 
 void Game::createRooms()
@@ -137,11 +138,19 @@ void Game::CreateItems()
 	greenkey = new Key("greenkey", 6);
 	garage->LockRoom(greenkey);
 	bluekey = new Key("bluekey", 1);
-	house->PlaceItem(*bluekey);
+	std::cout << "Adress of bluekey: " << bluekey << std::endl;
+	house->PlaceItem(bluekey);
+	
 	apple = new Item("apple", 1);
-	house->PlaceItem(*apple);
+	std::cout << "Adress of apple: " << apple << std::endl;
+	house->PlaceItem(apple);
+	std::cout << house->GetItem("apple") << std::endl;
+	house->PrintItems();
+	house->RemoveItem("apple");
+	house->PrintItems();
 	mobile = new Item("mobile", 2);
-	garage->PlaceItem(*mobile);
+	//garage->PlaceItem(mobile);
+	bandage = new Medicine("bandage", 1, 2);
 }
 
 void Game::play()

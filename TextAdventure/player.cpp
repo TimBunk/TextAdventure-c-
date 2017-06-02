@@ -19,10 +19,10 @@ void Player::setCurrentRoom(Room *room)
 void Player::describeRoom()
 {
 	std::cout << currentRoom->getShortDescription() << std::endl;
-	if (currentRoom->ContainsItems()) {
+	/*if (currentRoom->ContainsItems()) {
 		std::cout << "You see some items lying around : ";
 		currentRoom->PrintItems();
-	}
+	}*/
 	std::cout << currentRoom->getExitString() << std::endl;
 }
 
@@ -136,16 +136,16 @@ void Player::DropItem(Command cmd)
 	if (item.GetName().compare("nothing") == 0) {
 		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
 	}
-	else {
+	/*else {
 		currentRoom->PlaceItem(item);
 		std::cout << "You dropped the " << item.GetName() << std::endl;
 		backpack->Remove(item.GetName());
-	}
+	}*/
 }
 
 void Player::PickUp(Command cmd)
 {
-	if (!cmd.hasSecondWord()) {
+	/*if (!cmd.hasSecondWord()) {
 		// if there is no second word, we don't know what to pickup...
 		std::cout << "What do you want to pickup?" << std::endl;
 		return;
@@ -163,5 +163,5 @@ void Player::PickUp(Command cmd)
 	}
 	else {
 		backpack->PrintOverCapacity(item);
-	}
+	}*/
 }

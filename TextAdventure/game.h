@@ -11,6 +11,7 @@
 #include "player.h"
 #include "item.h"
 #include "key.h"
+#include "medicine.h"
 #include "rlutil.h"
 
 class Game
@@ -57,6 +58,7 @@ private:
 	Key* bluekey;
 	Item* apple;
 	Item* mobile;
+	Medicine* bandage;
 };
 
 #endif /* GAME_H */

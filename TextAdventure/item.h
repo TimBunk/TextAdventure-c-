@@ -11,7 +11,7 @@ public:
 	~Item();
 	std::string GetName();
 	int GetWeight();
-	std::string GetInfo();
+	virtual std::string GetInfo();
 
 private:
 	std::string name;

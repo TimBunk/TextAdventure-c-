@@ -10,6 +10,12 @@ Medicine::~Medicine()
 
 }
 
+std::string Medicine::GetInfo()
+{
+	std::string info = GetName() + ", weight: " + std::to_string(GetWeight()) + ", healing: " + std::to_string(healing);
+	return info;
+}
+
 int Medicine::ApplyHealing()
 {
 	return healing;

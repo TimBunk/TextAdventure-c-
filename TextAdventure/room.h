@@ -30,9 +30,9 @@ public:
 	bool CheckLock();
 
 	
-	void PlaceItem(Item item);
+	void PlaceItem(Item* item);
 	void RemoveItem(std::string nameItem);
-	Item GetItem(std::string nameItem);
+	Item* GetItem(std::string nameItem);
 	bool ContainsItems();
 	void PrintItems();
 
@@ -43,7 +43,7 @@ private:
 	Key *key;
 	bool lock = false;
 	
-	std::vector<Item> items;
+	std::vector<Item*> items;
 };
 
 #endif /* ROOM_H */

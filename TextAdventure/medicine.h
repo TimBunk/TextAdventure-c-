@@ -13,6 +13,8 @@ class Medicine : public Item {
 		Medicine(std::string name, int weight, int healing);
 		~Medicine();
 
+		virtual std::string GetInfo();
+
 		int ApplyHealing();
 
 	private:
