@@ -26,3 +26,8 @@ std::string Item::GetInfo()
 	std::string info = GetName() + ", weight: " + std::to_string(GetWeight());
 	return info;
 }
+
+void Item::Use()
+{
+
+}

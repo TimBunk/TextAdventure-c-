@@ -4,6 +4,7 @@
 #define GAME_H
 
 #include <string>
+#include <array>
 
 #include "parser.h"
 #include "command.h"
@@ -22,6 +23,8 @@ public:
 	void play();
 
 private:
+	void ChangeColor();
+	int color = 0;
 	void createRooms();
 	void CreateItems();
 	bool processCommand(Command cmd);

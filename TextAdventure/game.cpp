@@ -8,14 +8,14 @@
 
 Game::Game()
 {
-	rlutil::setColor(rlutil::YELLOW);
+	ChangeColor();
 	player = new Player();
 	
 	this->createRooms();
 	this->CreateItems();
 
-	//player->AddItem(greenkey);
-	//player->AddItem(bandage);
+	player->AddItem(greenkey);
+	player->AddItem(bandage);
 }
 
 Game::~Game()
@@ -45,6 +45,20 @@ Game::~Game()
 	delete greenkey;
 	delete bluekey;
 	delete bandage;
+}
+
+void Game::ChangeColor()
+{
+	switch (color) {
+		case 0:
+			rlutil::setColor(rlutil::YELLOW);
+			break;
+		case 1:
+			rlutil::setColor(rlutil::LIGHTGREEN);
+	}
+	color++;
+	if (color > 1)
+		color = 0;
 }
 
 void Game::createRooms()
@@ -139,7 +153,6 @@ void Game::CreateItems()
 	greenkey = new Key("greenkey", 6);
 	std::cout << "Address of greenkey = " << greenkey << std::endl;
 	garage->LockRoom(greenkey);
-	house->PlaceItem(greenkey);
 
 	bluekey = new Key("bluekey", 1);
 	std::cout << "Adress of bluekey: " << bluekey << std::endl;
@@ -161,6 +174,7 @@ void Game::play()
 
 	bool finished = false;
 	while ( !finished ) {
+		ChangeColor();
 		Command command = parser.getCommand();
 		finished = processCommand(command);
 		if (!finished && !player->IsAlive()) {

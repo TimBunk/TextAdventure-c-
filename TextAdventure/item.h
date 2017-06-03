@@ -12,6 +12,7 @@ public:
 	std::string GetName();
 	int GetWeight();
 	virtual std::string GetInfo();
+	void virtual Use();
 
 private:
 	std::string name;
