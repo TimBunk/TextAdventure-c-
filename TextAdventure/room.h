@@ -40,7 +40,7 @@ private:
 	std::string description;
 	std::map<std::string, Room*> exits;
 
-	Key *key;
+	Key* key;
 	bool lock = false;
 	
 	std::vector<Item*> items;

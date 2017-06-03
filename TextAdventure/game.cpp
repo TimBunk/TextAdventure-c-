@@ -14,8 +14,8 @@ Game::Game()
 	this->createRooms();
 	this->CreateItems();
 
-	player->AddItem(*greenkey);
-	player->AddItem(*bandage);
+	//player->AddItem(greenkey);
+	//player->AddItem(bandage);
 }
 
 Game::~Game()
@@ -84,6 +84,7 @@ void Game::createRooms()
 
 	willowStreet->setExit("north", ridgeRoad);
 	willowStreet->setExit("east", willowStreet2);
+	willowStreet->setExit("south", house);
 	willowStreet->setExit("west", neighboursHouse);
 	
 	willowStreet2->setExit("east", playground);
@@ -136,7 +137,10 @@ void Game::CreateItems()
 {
 	// create items
 	greenkey = new Key("greenkey", 6);
+	std::cout << "Address of greenkey = " << greenkey << std::endl;
 	garage->LockRoom(greenkey);
+	house->PlaceItem(greenkey);
+
 	bluekey = new Key("bluekey", 1);
 	std::cout << "Adress of bluekey: " << bluekey << std::endl;
 	house->PlaceItem(bluekey);
@@ -144,12 +148,10 @@ void Game::CreateItems()
 	apple = new Item("apple", 1);
 	std::cout << "Adress of apple: " << apple << std::endl;
 	house->PlaceItem(apple);
-	std::cout << house->GetItem("apple") << std::endl;
-	house->PrintItems();
-	house->RemoveItem("apple");
-	house->PrintItems();
+
 	mobile = new Item("mobile", 2);
-	//garage->PlaceItem(mobile);
+	garage->PlaceItem(mobile);
+
 	bandage = new Medicine("bandage", 1, 2);
 }
 

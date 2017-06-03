@@ -9,7 +9,6 @@ Room::Room(std::string desc)
 
 Room::~Room()
 {
-	//delete items;
 }
 
 void Room::setExit(std::string direction, Room* neighbor)
@@ -34,11 +33,10 @@ std::string Room::getExitString()
 		returnString += " ";
 		++it;
 	}
-
 	return returnString;
 }
 
-void Room::LockRoom(Key *key)
+void Room::LockRoom(Key* key)
 {
 	lock = true;
 	this->key = key;
@@ -64,39 +62,31 @@ bool Room::CheckLock()
 
 void Room::PlaceItem(Item* item)
 {
-	std::cout << "Adress in room: " << item << std::endl;
 	items.push_back(item);
 }
 
 void Room::RemoveItem(std::string nameItem)
 {
 	std::vector<Item*>::iterator it = items.begin(); // get the 'iterator' from the list.
-													// 'it' is a pointer to the first element in the list (which is a Bullet pointer).
-	int counter = 0;
+													// 'it' is a pointer to the first element in the list (which is a Item pointer).
 	while (it != items.end()) {
-		if ((*it)->GetName().compare(nameItem) == 0) { // de-reference the iterator pointer (results in the Bullet pointer itself).
-			std::cout << "-- deleting Item " << counter << " : (" << (*it)->GetName() << ")" << std::endl;
-			it = items.erase(it); // 'remove' from bullet list. 'erase' returns a pointer to the next element in the list.
+		if ((*it)->GetName().compare(nameItem) == 0) { // de-reference the iterator pointer (results in the Item pointer itself).
+			it = items.erase(it); // 'remove' from items list. 'erase' returns a pointer to the next element in the list.
 		}
 		else {
 			++it; // pointer arithmetic. "make 'it' point to the next element".
 		}
-		++counter;
 	}
 }
 
 Item* Room::GetItem(std::string nameItem)
 {
-	//Item *item;
 	for (int i = 0; i < items.size(); i++) {
 		if (items[i]->GetName().compare(nameItem) == 0) {
-			//item = items[i];
 			return items[i];
 		}
 	}
-	// if item is not found return a item with name nothing
-	//item = new Item("nothing", 0);
-	//return *item;
+	return NULL;
 }
 
 bool Room::ContainsItems()

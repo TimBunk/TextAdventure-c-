@@ -14,17 +14,17 @@ public:
 	Backpack(int capacity);
 	~Backpack();
 
-	void Add(Item item);
+	void Add(Item* item);
 	void Remove(std::string name);
 	int GetCurrentWeight();
 	int GetCapacity();
-	void PrintOverCapacity(Item item);
-	Item GetItem(std::string name);
+	void PrintOverCapacity(Item* item);
+	Item* GetItem(std::string name);
 	void PrintInventory();
 
 private:
 	int capacity;
-	std::vector<Item> inventory;
+	std::vector<Item*> inventory;
 };
 
 #endif
