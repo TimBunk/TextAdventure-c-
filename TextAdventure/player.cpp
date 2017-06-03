@@ -87,7 +87,7 @@ void Player::UnlockRoom(Command cmd)
 
 void Player::PrintHealth()
 {
-	std::cout << health << std::endl;
+	std::cout << health << "/"  << maxHealth << std::endl;
 }
 
 void Player::ApplyDamage(int amount)
