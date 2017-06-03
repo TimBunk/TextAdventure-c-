@@ -1,9 +1,11 @@
 #include "player.h"
 
 
-Player::Player()
+Player::Player(int health, int backpackCapacity)
 {
-	backpack = new Backpack(20);
+	this->maxHealth = health;
+	this->health = health;
+	backpack = new Backpack(backpackCapacity);
 }
 
 Player::~Player()

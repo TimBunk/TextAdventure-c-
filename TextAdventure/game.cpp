@@ -9,7 +9,7 @@
 Game::Game()
 {
 	ChangeColor();
-	player = new Player();
+	player = new Player(10,10);
 	
 	this->createRooms();
 	this->CreateItems();

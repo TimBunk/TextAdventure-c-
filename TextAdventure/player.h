@@ -15,7 +15,7 @@
 class Player
 {
 public:
-	Player();
+	Player(int health, int backpackCapacity);
 	~Player();
 
 	void setCurrentRoom(Room *room);
@@ -35,7 +35,8 @@ public:
 
 private:
 	Room* currentRoom;
-	int health = 15;
+	int maxHealth;
+	int health;
 	Backpack* backpack;
 };
 
