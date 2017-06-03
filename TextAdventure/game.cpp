@@ -14,7 +14,7 @@ Game::Game()
 
 	player->AddItem(greenkey);
 	player->AddItem(bandage);
-	player->ApplyDamage(99);
+	//player->ApplyDamage(99);
 	//player->ApplyHeal(100);
 }
 
@@ -204,6 +204,8 @@ bool Game::processCommand(Command cmd)
 		player->PickUp(cmd);
 	} else if (commandWord.compare("drop") == 0) {
 		player->DropItem(cmd);
+	} else if (commandWord.compare("use") == 0) {
+		player->UseItem(cmd);
 	}
 	return wantToQuit;
 }

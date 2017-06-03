@@ -173,3 +173,22 @@ void Player::PickUp(Command cmd)
 		currentRoom->RemoveItem(item->GetName());
 	}
 }
+
+void Player::UseItem(Command cmd)
+{
+	if (!cmd.hasSecondWord()) {
+		// if there is no second word, we don't know what to pickup...
+		std::cout << "What item do you want to use?" << std::endl;
+		return;
+	}
+
+	std::string nameItem = cmd.getSecondWord();
+	Item* item = backpack->GetItem(nameItem);
+
+	if (item == NULL) {
+		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
+	}
+	else {
+		item->Use();
+	}
+}
