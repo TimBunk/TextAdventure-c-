@@ -92,6 +92,9 @@ void Player::PrintHealth()
 
 void Player::ApplyDamage(int amount)
 {
+	if (amount > health) {
+		amount = health;
+	}
 	health -= amount;
 	std::cout << "You took " << amount << " damage, you're current health is now ";
 	PrintHealth();

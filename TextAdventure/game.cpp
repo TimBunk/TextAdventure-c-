@@ -14,8 +14,8 @@ Game::Game()
 
 	player->AddItem(greenkey);
 	player->AddItem(bandage);
-	player->ApplyDamage(9);
-	player->ApplyHeal(100);
+	player->ApplyDamage(99);
+	//player->ApplyHeal(100);
 }
 
 Game::~Game()
