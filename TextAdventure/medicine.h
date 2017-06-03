@@ -10,7 +10,7 @@ class Medicine : public Item {
 
 	public:
 
-		Medicine(std::string name, int weight, int healing);
+		Medicine(std::string name, int weight, std::string description, int healing);
 		~Medicine();
 
 		virtual std::string GetInfo();

@@ -150,22 +150,13 @@ void Game::createRooms()
 void Game::CreateItems()
 {
 	// create items
-	greenkey = new Key("greenkey", 6);
-	std::cout << "Address of greenkey = " << greenkey << std::endl;
+	greenkey = new Key("greenkey", 6, "used to open doors");
 	garage->LockRoom(greenkey);
 
-	bluekey = new Key("bluekey", 1);
-	std::cout << "Adress of bluekey: " << bluekey << std::endl;
+	bluekey = new Key("bluekey", 1, "used to open doors");
 	house->PlaceItem(bluekey);
-	
-	apple = new Item("apple", 1);
-	std::cout << "Adress of apple: " << apple << std::endl;
-	house->PlaceItem(apple);
 
-	mobile = new Item("mobile", 2);
-	garage->PlaceItem(mobile);
-
-	bandage = new Medicine("bandage", 1, 2);
+	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2);
 }
 
 void Game::play()

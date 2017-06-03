@@ -1,6 +1,6 @@
 #include "key.h"
 
-Key::Key(std::string name, int weight) : Item::Item(name,weight)
+Key::Key(std::string name, int weight, std::string description) : Item::Item(name,weight,description)
 {
 }
 

@@ -59,8 +59,6 @@ private:
 	//list with items
 	Key* greenkey;
 	Key* bluekey;
-	Item* apple;
-	Item* mobile;
 	Medicine* bandage;
 };
 

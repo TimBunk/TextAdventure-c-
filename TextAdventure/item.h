@@ -7,7 +7,7 @@
 class Item
 {
 public:
-	Item(std::string name, int weight);
+	Item(std::string name, int weight, std::string description);
 	~Item();
 	std::string GetName();
 	int GetWeight();
@@ -15,11 +15,12 @@ public:
 	void virtual Use();
 
 private:
-	std::string name;
-	int weight;
+	
 
 protected:
-	
+	std::string name;
+	int weight;
+	std::string description;
 };
 
 #endif
