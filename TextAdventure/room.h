@@ -1,5 +1,3 @@
-// room.h
-
 #ifndef ROOM_H
 #define ROOM_H
 
@@ -48,4 +46,4 @@ private:
 	std::vector<Item*> items;
 };
 
-#endif /* ROOM_H */
+#endif

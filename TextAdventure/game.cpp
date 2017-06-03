@@ -1,5 +1,3 @@
-// game.cpp
-
 #include <iostream>
 #include <string>
 #include <stdio.h>

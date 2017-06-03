@@ -1,5 +1,3 @@
-// room.cpp
-
 #include "room.h"
 
 Room::Room(std::string name, std::string desc)

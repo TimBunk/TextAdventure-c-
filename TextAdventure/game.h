@@ -1,5 +1,3 @@
-// game.h
-
 #ifndef GAME_H
 #define GAME_H
 
@@ -62,4 +60,4 @@ private:
 	Medicine* bandage;
 };
 
-#endif /* GAME_H */
+#endif
