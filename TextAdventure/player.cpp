@@ -49,7 +49,10 @@ void Player::goRoom(Command cmd)
 	}
 	else {
 		currentRoom = nextRoom;
-		ApplyDamage(1);
+		if (bleeding == true) {
+			std::cout << "You are bleeding" << std::endl;
+			ApplyDamage(1, false);
+		}
 		describeRoom();
 	}
 }
@@ -90,8 +93,13 @@ void Player::PrintHealth()
 	std::cout << health << "/"  << maxHealth << std::endl;
 }
 
-void Player::ApplyDamage(int amount)
+void Player::ApplyDamage(int amount, bool bleeding)
 {
+	if (!this->bleeding && bleeding) {
+		this->bleeding = bleeding;
+		std::cout << "You got hurt and started bleeding" << std::endl;
+	} 
+
 	if (amount > health) {
 		amount = health;
 	}
@@ -100,8 +108,13 @@ void Player::ApplyDamage(int amount)
 	PrintHealth();
 }
 
-void Player::ApplyHeal(int amount)
+void Player::ApplyHeal(int amount, bool bleeding)
 {
+	if (this->bleeding && !bleeding) {
+		this->bleeding = bleeding;
+		std::cout << "You stopped the bleeding" << std::endl;
+	}
+
 	if (health + amount > maxHealth) {
 		amount = maxHealth - health;
 	}
@@ -189,6 +202,11 @@ void Player::UseItem(Command cmd)
 		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
 	}
 	else {
-		item->Use();
+		if (dynamic_cast<Medicine*>(item) != NULL) {
+			Medicine* medicine = dynamic_cast<Medicine*>(item);
+			medicine->Use(this);
+			std::cout << "Removed " << medicine->GetName() << " from inventory" << std::endl;
+			backpack->Remove(medicine->GetName());
+		}
 	}
 }

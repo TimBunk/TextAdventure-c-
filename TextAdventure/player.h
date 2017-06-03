@@ -11,6 +11,7 @@
 #include "backpack.h"
 #include "item.h"
 #include "key.h"
+#include "medicine.h"
 
 class Player
 {
@@ -24,8 +25,8 @@ public:
 	void UnlockRoom(Command cmd);
 
 	void PrintHealth();
-	void ApplyDamage(int amount);
-	void ApplyHeal(int amount);
+	void ApplyDamage(int amount, bool bleeding);
+	void ApplyHeal(int amount, bool bleeding);
 	bool IsAlive();
 	
 	void PrintBackpackInfo();
@@ -36,9 +37,12 @@ public:
 
 private:
 	Room* currentRoom;
+	Backpack* backpack;
+
+	bool bleeding = false;
 	int maxHealth;
 	int health;
-	Backpack* backpack;
+	
 };
 
 #endif

@@ -6,21 +6,21 @@
 
 #include "item.h"
 
+class Player;
+
 class Medicine : public Item {
 
 	public:
-
-		Medicine(std::string name, int weight, std::string description, int healing);
+		Medicine(std::string name, int weight, std::string description, int healing, bool bleeding);
 		~Medicine();
 
 		virtual std::string GetInfo();
-
-		int ApplyHealing();
+		virtual void Use(Player* player);
 
 	private:
 
 		int healing;
-
+		bool bleeding;
 };
 
 #endif

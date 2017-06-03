@@ -14,7 +14,7 @@ Game::Game()
 
 	player->AddItem(greenkey);
 	player->AddItem(bandage);
-	//player->ApplyDamage(99);
+	player->ApplyDamage(5, true);
 	//player->ApplyHeal(100);
 }
 
@@ -156,7 +156,7 @@ void Game::CreateItems()
 	bluekey = new Key("bluekey", 1, "used to open doors");
 	house->PlaceItem(bluekey);
 
-	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2);
+	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2, false);
 }
 
 void Game::play()
