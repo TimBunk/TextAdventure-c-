@@ -99,8 +99,11 @@ void Player::ApplyDamage(int amount)
 
 void Player::ApplyHeal(int amount)
 {
+	if (health + amount > maxHealth) {
+		amount = maxHealth - health;
+	}
 	health += amount;
-	std::cout << "You healed for " << amount; " , you're current health is now ";
+	std::cout << "You healed for " << amount << " , you're current health is now ";
 	PrintHealth();
 }
 
