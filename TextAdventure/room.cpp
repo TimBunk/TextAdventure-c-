@@ -2,8 +2,9 @@
 
 #include "room.h"
 
-Room::Room(std::string desc)
+Room::Room(std::string name, std::string desc)
 {
+	this->name = name;
 	this->description = desc;
 }
 
@@ -24,12 +25,18 @@ Room* Room::getExit(std::string direction)
 	return NULL;
 }
 
+std::string Room::GetName()
+{
+	return name;
+}
+
 std::string Room::getExitString()
 {
 	std::string returnString = "Exits: ";
 	std::map<std::string,Room*>::iterator it = exits.begin();
 	while (it != exits.end()) {
 		returnString += it->first;
+		returnString += "(" + exits[it->first]->GetName() + ")";
 		returnString += " ";
 		++it;
 	}

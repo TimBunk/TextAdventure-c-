@@ -14,12 +14,13 @@
 class Room
 {
 public:
-	Room(std::string desc);
+	Room(std::string name, std::string desc);
 	virtual ~Room();
 
 	void setExit(std::string direction, Room* neighbor);
 	Room* getExit(std::string direction);
 
+	std::string GetName();
 	std::string getLongDescription() { return "You are " + description + '\n' + getExitString(); }
 	std::string getShortDescription() { return "You are " + description; }
 	std::string getExitString();
@@ -37,6 +38,7 @@ public:
 	void PrintItems();
 
 private:
+	std::string name;
 	std::string description;
 	std::map<std::string, Room*> exits;
 

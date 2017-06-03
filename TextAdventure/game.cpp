@@ -64,25 +64,25 @@ void Game::ChangeColor()
 void Game::createRooms()
 {
 	// create the rooms
-	house = new Room("inside you're own house");
-	basement = new Room("in you're basement");
-	garage = new Room("in you're garage");
-	neighboursHouse = new Room("inside you're neighbours house");
-	willowStreet = new Room("on the Willowstreet");
-	willowStreet2 = new Room("on the second part of the Willowstreet");
-	playground = new Room("on the playground");
-	shed = new Room("inside a old shed");
-	ridgeRoad = new Room("on the Ridgeroad");
-	mainStreet = new Room("on the Mainstreet");
-	mainStreet2 = new Room("on the second part of the Mainstreet");
-	shore = new Room("on the shore");
-	weaponStore = new Room("inside of the weaponStore");
-	parkingArea = new Room("on the parking area");
-	park = new Room("in the park");
-	abandondedHouse = new Room("inside a abandond house");
-	pharmacy = new Room("inside a pharmacy");
-	backyard = new Room("in the backyard of the abandond house");
-	sea = new Room("in front of the sea");
+	house = new Room("you're house", "inside you're own house");
+	basement = new Room("you're basement", "in you're basement");
+	garage = new Room("you're garage", "in you're garage");
+	neighboursHouse = new Room("neighbours house", "inside you're neighbours house");
+	willowStreet = new Room("Willowstreet-1", "on the Willowstreet");
+	willowStreet2 = new Room("Willowstreet-2", "on the second part of the Willowstreet");
+	playground = new Room("playground", "on the playground");
+	shed = new Room("old shed", "inside a old shed");
+	ridgeRoad = new Room("Ridgeroad", "on the Ridgeroad");
+	mainStreet = new Room("mainStreet-1", "on the Mainstreet");
+	mainStreet2 = new Room("mainStreet-2", "on the second part of the Mainstreet");
+	shore = new Room("shore", "on the shore");
+	weaponStore = new Room("weapon store", "inside of the weaponStore");
+	parkingArea = new Room("parking area", "on the parking area");
+	park = new Room("park", "in the park");
+	abandondedHouse = new Room("abandonded house", "inside a abandond house");
+	pharmacy = new Room("pharmacy", "inside a pharmacy");
+	backyard = new Room("backyard", "in the backyard of the abandond house");
+	sea = new Room("sea", "in front of the sea");
 
 	// initialise room exits
 	house->setExit("north", willowStreet);
@@ -221,7 +221,7 @@ void Game::printWelcome()
 {
 	std::cout << std::endl;
 	std::cout << "Welcome to EscapeTheZombies!" << std::endl;
-	std::cout << "EscapeTheZombies is a new, text adventure game." << std::endl;
+	std::cout << "EscapeTheZombies is a new exciting text adventure." << std::endl;
 	
 	std::cout << std::endl;
 	std::cout << "It is early in the morning you just woke up and hear someone knocking really loudly on you're front door." << std::endl;
