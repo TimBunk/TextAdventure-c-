@@ -93,13 +93,15 @@ void Player::PrintHealth()
 	std::cout << health << "/"  << maxHealth << std::endl;
 }
 
-void Player::ApplyDamage(int amount, bool bleeding)
+void Player::ApplyDamage(int amount, bool startsBleeding)
 {
-	if (!this->bleeding && bleeding) {
-		this->bleeding = bleeding;
+	if (!this->bleeding && startsBleeding) {
+		this->bleeding = true;
 		std::cout << "You got hurt and started bleeding" << std::endl;
 	} 
-
+	if (amount <= 0) {
+		return;
+	}
 	if (amount > health) {
 		amount = health;
 	}
@@ -108,14 +110,16 @@ void Player::ApplyDamage(int amount, bool bleeding)
 	PrintHealth();
 }
 
-void Player::ApplyHeal(int amount, bool bleeding)
+void Player::ApplyHeal(int amount, bool stopsBleeding)
 {
-	if (this->bleeding && !bleeding) {
-		this->bleeding = bleeding;
+	if (this->bleeding && stopsBleeding) {
+		this->bleeding = false;
 		std::cout << "You stopped the bleeding" << std::endl;
 	}
-
-	if (health + amount > maxHealth) {
+	if (amount <= 0 || health >= maxHealth) {
+		return;
+	}
+	else if (health + amount > maxHealth) {
 		amount = maxHealth - health;
 	}
 	health += amount;
@@ -202,6 +206,8 @@ void Player::UseItem(Command cmd)
 		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
 	}
 	else {
+		std::cout << "You used the " << item->GetName() << std::endl;
+		// CHECK IF ITEM IS MEDICINE
 		if (dynamic_cast<Medicine*>(item) != NULL) {
 			Medicine* medicine = dynamic_cast<Medicine*>(item);
 			medicine->Use(this);

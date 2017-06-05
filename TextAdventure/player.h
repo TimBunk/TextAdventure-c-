@@ -25,8 +25,8 @@ public:
 	void UnlockRoom(Command cmd);
 
 	void PrintHealth();
-	void ApplyDamage(int amount, bool bleeding);
-	void ApplyHeal(int amount, bool bleeding);
+	void ApplyDamage(int amount, bool startsBleeding);
+	void ApplyHeal(int amount, bool stopsBleeding);
 	bool IsAlive();
 	
 	void PrintBackpackInfo();
