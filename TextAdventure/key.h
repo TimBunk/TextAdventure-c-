@@ -13,6 +13,8 @@ class Key : public Item
 		Key(std::string name, int weight, std::string description);
 		~Key();
 
+		virtual void Use();
+
 	private:
 
 };

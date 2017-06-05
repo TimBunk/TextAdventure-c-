@@ -206,13 +206,14 @@ void Player::UseItem(Command cmd)
 		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
 	}
 	else {
-		// CHECK IF ITEM IS MEDICINE
+		// CHECK IF ITEM IS A MEDICINE
 		if (dynamic_cast<Medicine*>(item) != NULL) {
 			Medicine* medicine = dynamic_cast<Medicine*>(item);
 			medicine->Use(this);
 			std::cout << "Removed " << medicine->GetName() << " from inventory" << std::endl;
 			backpack->Remove(medicine->GetName());
 		}
+		// CHECK IF ITEM IS A KEY
 		else if (dynamic_cast<Key*>(item) != NULL) {
 			Key* key = dynamic_cast<Key*>(item);
 			key->Use();
