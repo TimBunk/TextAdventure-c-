@@ -209,9 +209,19 @@ void Player::UseItem(Command cmd)
 		// CHECK IF ITEM IS A MEDICINE
 		if (dynamic_cast<Medicine*>(item) != NULL) {
 			Medicine* medicine = dynamic_cast<Medicine*>(item);
-			medicine->Use(this);
-			std::cout << "Removed " << medicine->GetName() << " from inventory" << std::endl;
-			backpack->Remove(medicine->GetName());
+			if (health < maxHealth && medicine->Healing()) {
+				medicine->Use(this);
+				std::cout << "Removed " << medicine->GetName() << " from inventory" << std::endl;
+				backpack->Remove(medicine->GetName());
+			}
+			else if (bleeding && medicine->StopsBleeding()) {
+				medicine->Use(this);
+				std::cout << "Removed " << medicine->GetName() << " from inventory" << std::endl;
+				backpack->Remove(medicine->GetName());
+			}
+			else {
+				std::cout << "You can not use that right now" << std::endl;
+			}
 		}
 		// CHECK IF ITEM IS A KEY
 		else if (dynamic_cast<Key*>(item) != NULL) {

@@ -27,7 +27,10 @@ bool Medicine::StopsBleeding()
 	return stopsBleeding;
 }
 
-int Medicine::GetAmountHealing()
+bool Medicine::Healing()
 {
-	return healing;
+	if (healing > 0) {
+		return true;
+	}
+	return false;
 }

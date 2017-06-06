@@ -18,7 +18,7 @@ class Medicine : public Item {
 		virtual void Use(Player* player);
 
 		bool StopsBleeding();
-		int GetAmountHealing();
+		bool Healing();
 
 	private:
 

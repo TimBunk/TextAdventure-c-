@@ -12,6 +12,7 @@ Game::Game()
 	this->createRooms();
 	this->CreateItems();
 
+	player->ApplyDamage(0, false);
 	player->AddItem(greenkey);
 	player->AddItem(bandage);
 }
