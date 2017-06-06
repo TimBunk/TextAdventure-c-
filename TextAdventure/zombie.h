@@ -10,6 +10,8 @@ class Zombie {
 		Zombie(std::string name, int health, int damage, bool appliesBleed);
 		~Zombie();
 
+		std::string GetName();
+
 	protected:
 
 	private:

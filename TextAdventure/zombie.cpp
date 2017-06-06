@@ -10,4 +10,10 @@ Zombie::Zombie(std::string name, int health, int damage, bool appliesBleed)
 
 Zombie::~Zombie()
 {
+
+}
+
+std::string Zombie::GetName()
+{
+	return name;
 }

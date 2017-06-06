@@ -44,6 +44,10 @@ Game::~Game()
 	delete greenkey;
 	delete bluekey;
 	delete bandage;
+
+	delete zombie;
+	delete zombie2;
+	delete zombie3;
 }
 
 void Game::ChangeColor()
@@ -142,6 +146,14 @@ void Game::createRooms()
 	backyard->setExit("south", abandondedHouse);
 
 	sea->setExit("south", backyard);
+
+	// Create zombies
+	zombie = new Zombie("Mr.zombie", 1, 2, true);
+	zombie2 = new Zombie("Giant zombie", 2, 1, true);
+	zombie3 = new Zombie("Midget zombie", 1, 1, false);
+	willowStreet->PlaceZombie(zombie);
+	willowStreet->PlaceZombie(zombie2);
+	willowStreet->PlaceZombie(zombie3);
 	
 	this->player->setCurrentRoom(house);  // start game outside
 }

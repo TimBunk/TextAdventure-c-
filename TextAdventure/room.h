@@ -8,6 +8,7 @@
 
 #include "key.h"
 #include "item.h"
+#include "zombie.h"
 
 class Room
 {
@@ -27,13 +28,16 @@ public:
 	std::string GetKeyName();
 	void UnlockRoom(std::string keyName);
 	bool CheckLock();
-
 	
 	void PlaceItem(Item* item);
 	void RemoveItem(std::string nameItem);
 	Item* GetItem(std::string nameItem);
 	bool ContainsItems();
 	void PrintItems();
+
+	void PlaceZombie(Zombie* zombie);
+	bool ConatainsZombies();
+	void PrintZombies();
 
 private:
 	std::string name;
@@ -44,7 +48,7 @@ private:
 	bool lock = false;
 	
 	std::vector<Item*> items;
-
+	std::vector<Zombie*> zombies;
 };
 
 #endif

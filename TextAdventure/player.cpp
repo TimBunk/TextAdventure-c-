@@ -54,6 +54,9 @@ void Player::goRoom(Command cmd)
 			ApplyDamage(1, false);
 		}
 		describeRoom();
+		if (currentRoom->ConatainsZombies()) {
+			currentRoom->PrintZombies();
+		}
 	}
 }
 

@@ -116,3 +116,32 @@ void Room::PrintItems()
 		}
 	}
 }
+
+void Room::PlaceZombie(Zombie * zombie)
+{
+	zombies.push_back(zombie);
+}
+
+bool Room::ConatainsZombies()
+{
+	if (zombies.size() > 0) {
+		return true;
+	}
+	return false;
+}
+
+void Room::PrintZombies()
+{
+	std::vector<Zombie*>::iterator it = zombies.begin();
+	std::cout << "Zombies: ";
+	while (it != zombies.end()) {
+		 std::cout << (*it)->GetName();
+		++it;
+		if (it == zombies.end()) {
+			std::cout << std::endl;
+		}
+		else {
+			std::cout << ", ";
+		}
+	}
+}
