@@ -9,10 +9,14 @@
 class Weapon : public Item {
 
 	public:
-		Weapon(std::string name, int weight, std::string description);
+		Weapon(std::string name, int weight, std::string description, int damage, int durability);
 		~Weapon();
 
 		virtual void Use();
+
+	protected:
+		int damage;
+		int durability;
 
 	private:
 
