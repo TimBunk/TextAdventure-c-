@@ -44,6 +44,7 @@ private:
 	bool lock = false;
 	
 	std::vector<Item*> items;
+
 };
 
 #endif
