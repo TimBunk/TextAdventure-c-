@@ -15,3 +15,8 @@ void Weapon::Use()
 {
 	
 }
+
+void Weapon::DecreaseDurability()
+{
+	durability--;
+}

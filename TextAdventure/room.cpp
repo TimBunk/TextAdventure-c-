@@ -135,7 +135,7 @@ void Room::PrintZombies()
 	std::vector<Zombie*>::iterator it = zombies.begin();
 	std::cout << "Zombies: ";
 	while (it != zombies.end()) {
-		 std::cout << (*it)->GetName();
+		std::cout << (*it)->GetName();
 		++it;
 		if (it == zombies.end()) {
 			std::cout << std::endl;
@@ -143,5 +143,14 @@ void Room::PrintZombies()
 		else {
 			std::cout << ", ";
 		}
+	}
+}
+
+void Room::ZombiesAttack(Player* player)
+{
+	std::vector<Zombie*>::iterator it = zombies.begin();
+	while (it != zombies.end()) {
+		(*it)->DoDamage(player);
+		++it;
 	}
 }

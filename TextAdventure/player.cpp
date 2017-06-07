@@ -48,6 +48,10 @@ void Player::goRoom(Command cmd)
 		std::cout << "This door is locked, it requires a " << nextRoom->GetKeyName() << std::endl;
 	}
 	else {
+		if (currentRoom->ConatainsZombies()) {
+			currentRoom->ZombiesAttack(this);
+		}
+
 		currentRoom = nextRoom;
 		if (bleeding == true) {
 			std::cout << "You are bleeding" << std::endl;

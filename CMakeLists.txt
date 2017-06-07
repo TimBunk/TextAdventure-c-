@@ -35,6 +35,8 @@ IF(MAKE_TEXT)
       TextAdventure/medicine.h
       TextAdventure/weapon.cpp
       TextAdventure/weapon.h
+      TextAdventure/gun.cpp
+      TextAdventure/gun.h
       TextAdventure/zombie.cpp
       TextAdventure/zombie.h
       TextAdventure/rlutil.h

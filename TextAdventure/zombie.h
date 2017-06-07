@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+class Player;
+
 class Zombie {
 
 	public:
@@ -11,6 +13,8 @@ class Zombie {
 		~Zombie();
 
 		std::string GetName();
+		void DoDamage(Player* player);
+		void TakeDamage(int amount);
 
 	protected:
 

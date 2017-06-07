@@ -67,10 +67,10 @@ void Game::ChangeColor()
 void Game::createRooms()
 {
 	// create the rooms
-	house = new Room("you're house", "inside you're own house");
-	basement = new Room("you're basement", "in you're basement");
-	garage = new Room("you're garage", "in you're garage");
-	neighboursHouse = new Room("neighbours house", "inside you're neighbours house");
+	house = new Room("your house", "inside your own house");
+	basement = new Room("your basement", "in your basement");
+	garage = new Room("your garage", "in your garage");
+	neighboursHouse = new Room("neighbours house", "inside your neighbours house");
 	willowStreet = new Room("Willowstreet-1", "on the Willowstreet");
 	willowStreet2 = new Room("Willowstreet-2", "on the second part of the Willowstreet");
 	playground = new Room("playground", "on the playground");

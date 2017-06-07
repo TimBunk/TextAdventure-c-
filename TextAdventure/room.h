@@ -10,6 +10,8 @@
 #include "item.h"
 #include "zombie.h"
 
+class Player;
+
 class Room
 {
 public:
@@ -38,6 +40,7 @@ public:
 	void PlaceZombie(Zombie* zombie);
 	bool ConatainsZombies();
 	void PrintZombies();
+	void ZombiesAttack(Player* player);
 
 private:
 	std::string name;

@@ -17,6 +17,7 @@ class Weapon : public Item {
 	protected:
 		int damage;
 		int durability;
+		void DecreaseDurability();
 
 	private:
 
