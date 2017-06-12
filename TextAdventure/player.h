@@ -8,7 +8,6 @@
 
 #include "room.h"
 #include "command.h"
-#include "backpack.h"
 #include "inventory.h"
 #include "item.h"
 #include "key.h"
