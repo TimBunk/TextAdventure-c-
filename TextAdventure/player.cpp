@@ -5,7 +5,7 @@ Player::Player(int health, int backpackCapacity)
 {
 	this->maxHealth = health;
 	this->health = health;
-	backpack = new Backpack(backpackCapacity);
+	backpack = new Inventory(backpackCapacity);
 }
 
 Player::~Player()
@@ -13,7 +13,7 @@ Player::~Player()
 	delete backpack;
 }
 
-void Player::setCurrentRoom(Room *room)
+void Player::setCurrentRoom(Room* room)
 {
 	currentRoom = room;
 }
@@ -22,7 +22,7 @@ void Player::describeRoom()
 {
 	std::cout << currentRoom->getShortDescription() << std::endl;
 	if (currentRoom->ContainsItems()) {
-		std::cout << "You see some items lying around : ";
+		std::cout << "You see some items lying around : " << std::endl;
 		currentRoom->PrintItems();
 	}
 	if (currentRoom->ConatainsZombies()) {
@@ -146,12 +146,20 @@ bool Player::IsAlive()
 
 void Player::PrintBackpackInfo()
 {
+	std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;
 	backpack->PrintInventory();
 }
 
 void Player::AddItem(Item* item)
 {
-	backpack->Add(item);
+	if (item->GetWeight() + backpack->GetCurrentWeight() < backpack->GetCapacity()) {
+		backpack->Add(item);
+		std::cout << "added " << item->GetName() << " to your backpack"<< std::endl;
+		std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;
+	}
+	else {
+		std::cout << "could not add " << item->GetName() << " because your backpack is full" << std::endl;
+	}
 }
 
 void Player::DropItem(Command cmd)
@@ -170,8 +178,9 @@ void Player::DropItem(Command cmd)
 	}
 	else {
 		currentRoom->PlaceItem(item);
-		std::cout << "You dropped the " << item->GetName() << std::endl;
 		backpack->Remove(item->GetName());
+		std::cout << "You dropped the " << item->GetName() << std::endl;
+		std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;
 	}
 }
 
@@ -190,11 +199,14 @@ void Player::PickUp(Command cmd)
 		std::cout << "'" << nameItem << "'" << " not found" << std::endl;
 	}
 	else if (backpack->GetCurrentWeight() + item->GetWeight() > backpack->GetCapacity()) {
-		backpack->PrintOverCapacity(item);
+		std::cout << "there is no more room in your backpack" << std::endl;
+		std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;
 	}
 	else {
 		backpack->Add(currentRoom->GetItem(item->GetName()));
 		currentRoom->RemoveItem(item->GetName());
+		std::cout << "added " << item->GetName() << " to backpack" << std::endl;
+		std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;
 	}
 }
 

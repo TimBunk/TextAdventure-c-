@@ -4,10 +4,14 @@ Room::Room(std::string name, std::string desc)
 {
 	this->name = name;
 	this->description = desc;
+
+	int test = 10;
+	items = new Inventory(test);
 }
 
 Room::~Room()
 {
+	delete items;
 }
 
 void Room::setExit(std::string direction, Room* neighbor)
@@ -67,54 +71,27 @@ bool Room::CheckLock()
 
 void Room::PlaceItem(Item* item)
 {
-	items.push_back(item);
+	items->Add(item);
 }
 
 void Room::RemoveItem(std::string nameItem)
 {
-	std::vector<Item*>::iterator it = items.begin(); // get the 'iterator' from the list.
-													// 'it' is a pointer to the first element in the list (which is a Item pointer).
-	while (it != items.end()) {
-		if ((*it)->GetName().compare(nameItem) == 0) { // de-reference the iterator pointer (results in the Item pointer itself).
-			it = items.erase(it); // 'remove' from items list. 'erase' returns a pointer to the next element in the list.
-		}
-		else {
-			++it; // pointer arithmetic. "make 'it' point to the next element".
-		}
-	}
+	items->Remove(nameItem);
 }
 
 Item* Room::GetItem(std::string nameItem)
 {
-	for (int i = 0; i < items.size(); i++) {
-		if (items[i]->GetName().compare(nameItem) == 0) {
-			return items[i];
-		}
-	}
-	return NULL;
+	return items->GetItem(nameItem);
 }
 
 bool Room::ContainsItems()
 {
-	if (items.size() >= 1) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return items->ContainsItems();
 }
 
 void Room::PrintItems()
 {
-	for (int i = 0; i < items.size(); i++) {
-		std::cout << items[i]->GetName();
-		if (i + 1 != items.size()) {
-			std::cout << ", ";
-		}
-		else {
-			std::cout << std::endl;
-		}
-	}
+	items->PrintInventory();
 }
 
 void Room::PlaceZombie(Zombie * zombie)

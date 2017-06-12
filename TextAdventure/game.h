@@ -13,7 +13,6 @@
 #include "medicine.h"
 #include "zombie.h"
 #include "weapon.h"
-#include "gun.h"
 #include "rlutil.h"
 
 class Game

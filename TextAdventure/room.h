@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+#include "inventory.h"
 #include "key.h"
 #include "item.h"
 #include "zombie.h"
@@ -51,7 +52,8 @@ private:
 	Key* key;
 	bool lock = false;
 	
-	std::vector<Item*> items;
+	Inventory* items;
+	//std::vector<Item*> items;
 	std::vector<Zombie*> zombies;
 	int zombieCount = 1;
 };

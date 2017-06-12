@@ -29,14 +29,14 @@ IF(MAKE_TEXT)
       TextAdventure/item.h
       TextAdventure/backpack.cpp
       TextAdventure/backpack.h
+      TextAdventure/inventory.cpp
+      TextAdventure/inventory.h
       TextAdventure/key.cpp
       TextAdventure/key.h
       TextAdventure/medicine.cpp
       TextAdventure/medicine.h
       TextAdventure/weapon.cpp
       TextAdventure/weapon.h
-      TextAdventure/gun.cpp
-      TextAdventure/gun.h
       TextAdventure/zombie.cpp
       TextAdventure/zombie.h
       TextAdventure/rlutil.h
