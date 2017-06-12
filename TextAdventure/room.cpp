@@ -120,6 +120,9 @@ void Room::PrintItems()
 void Room::PlaceZombie(Zombie * zombie)
 {
 	zombies.push_back(zombie);
+	std::string zombieName = "zombie." + std::to_string(zombieCount);
+	zombieCount++;
+	zombie->GiveName(zombieName);
 }
 
 bool Room::ConatainsZombies()
@@ -133,10 +136,12 @@ bool Room::ConatainsZombies()
 void Room::PrintZombies()
 {
 	std::vector<Zombie*>::iterator it = zombies.begin();
-	std::cout << "Zombies: ";
+	std::cout << "zombies: ";
+	int num = 1;
 	while (it != zombies.end()) {
-		std::cout << (*it)->GetName();
+		std::cout << (*it)->GetName() << (*it)->GetInfo();
 		++it;
+		num++;
 		if (it == zombies.end()) {
 			std::cout << std::endl;
 		}
@@ -152,5 +157,22 @@ void Room::ZombiesAttack(Player* player)
 	while (it != zombies.end()) {
 		(*it)->DoDamage(player);
 		++it;
+	}
+}
+
+void Room::AttackZombie(int damage, int hitAmount)
+{
+	std::vector<Zombie*>::iterator it = zombies.begin();
+	int hits = 0;
+	while (it != zombies.end() && hits < hitAmount) {
+		(*it)->TakeDamage(damage);
+		if (!(*it)->IsAlive()) {
+			//std::cout << "You killed "<< (*it)->GetName() << std::endl;
+			it = zombies.erase(it);
+		}
+		else {
+			++it;
+		}
+		hits++;
 	}
 }

@@ -12,6 +12,8 @@
 #include "key.h"
 #include "medicine.h"
 #include "zombie.h"
+#include "weapon.h"
+#include "gun.h"
 #include "rlutil.h"
 
 class Game
@@ -59,6 +61,7 @@ private:
 	Key* greenkey;
 	Key* bluekey;
 	Medicine* bandage;
+	Weapon* axe;
 
 	//list with zombies
 	Zombie* zombie;

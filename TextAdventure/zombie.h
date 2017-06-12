@@ -9,12 +9,15 @@ class Player;
 class Zombie {
 
 	public:
-		Zombie(std::string name, int health, int damage, bool appliesBleed);
+		Zombie(int health, int damage, bool appliesBleed);
 		~Zombie();
 
-		std::string GetName();
 		void DoDamage(Player* player);
 		void TakeDamage(int amount);
+		bool IsAlive();
+		std::string GetInfo();
+		void GiveName(std::string name);
+		std::string GetName();
 
 	protected:
 

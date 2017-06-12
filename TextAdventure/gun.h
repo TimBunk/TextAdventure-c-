@@ -9,7 +9,7 @@
 class Gun : public Weapon {
 
 	public:
-		Gun(std::string name, int weight, std::string description, int damage, int durability);
+		Gun(std::string name, int weight, std::string description, int damage, int hitAmount, int durability);
 		~Gun();
 
 	private:

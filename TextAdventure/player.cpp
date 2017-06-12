@@ -25,6 +25,9 @@ void Player::describeRoom()
 		std::cout << "You see some items lying around : ";
 		currentRoom->PrintItems();
 	}
+	if (currentRoom->ConatainsZombies()) {
+		currentRoom->PrintZombies();
+	}
 	std::cout << currentRoom->getExitString() << std::endl;
 }
 
@@ -58,9 +61,6 @@ void Player::goRoom(Command cmd)
 			ApplyDamage(1, false);
 		}
 		describeRoom();
-		if (currentRoom->ConatainsZombies()) {
-			currentRoom->PrintZombies();
-		}
 	}
 }
 
@@ -234,6 +234,23 @@ void Player::UseItem(Command cmd)
 		else if (dynamic_cast<Key*>(item) != NULL) {
 			Key* key = dynamic_cast<Key*>(item);
 			key->Use();
+		}
+		// CHECK IF ITEM IS A WEAPON
+		else if (dynamic_cast<Weapon*>(item) != NULL) {
+			Weapon* weapon = dynamic_cast<Weapon*>(item);
+			if (currentRoom->ConatainsZombies()) {
+				weapon->Use(currentRoom);
+				if (currentRoom->ConatainsZombies()) {
+					currentRoom->PrintZombies();
+				}
+				if (!weapon->IsAlive()) {
+					std::cout << "but your " << weapon->GetName() << " broke" << std::endl;
+					backpack->Remove(weapon->GetName());
+				}
+			}
+			else {
+				std::cout << "Better not use it if i don't need to" << std::endl;
+			}
 		}
 	}
 }

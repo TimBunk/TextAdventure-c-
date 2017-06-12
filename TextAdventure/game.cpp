@@ -15,6 +15,7 @@ Game::Game()
 	player->ApplyDamage(0, false);
 	player->AddItem(greenkey);
 	player->AddItem(bandage);
+	player->AddItem(axe);
 }
 
 Game::~Game()
@@ -44,6 +45,7 @@ Game::~Game()
 	delete greenkey;
 	delete bluekey;
 	delete bandage;
+	delete axe;
 
 	delete zombie;
 	delete zombie2;
@@ -148,9 +150,9 @@ void Game::createRooms()
 	sea->setExit("south", backyard);
 
 	// Create zombies
-	zombie = new Zombie("Mr.zombie", 1, 2, true);
-	zombie2 = new Zombie("Giant zombie", 2, 1, true);
-	zombie3 = new Zombie("Midget zombie", 1, 1, false);
+	zombie = new Zombie(1, 2, true);
+	zombie2 = new Zombie(4, 1, true);
+	zombie3 = new Zombie(1, 1, false);
 	willowStreet->PlaceZombie(zombie);
 	willowStreet->PlaceZombie(zombie2);
 	willowStreet->PlaceZombie(zombie3);
@@ -168,6 +170,8 @@ void Game::CreateItems()
 	house->PlaceItem(bluekey);
 
 	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2, true);
+	axe = new Weapon("axe", 2, "used to fight off zombies", "you swong your axe around you", 1, 3, 3);
+	//axe = new Weapon("axe", 1, "used to fight off the zombies", 1, 3);
 }
 
 void Game::play()

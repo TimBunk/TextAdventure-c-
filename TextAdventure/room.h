@@ -41,6 +41,7 @@ public:
 	bool ConatainsZombies();
 	void PrintZombies();
 	void ZombiesAttack(Player* player);
+	void AttackZombie(int damage, int hitAmount);
 
 private:
 	std::string name;
@@ -52,6 +53,7 @@ private:
 	
 	std::vector<Item*> items;
 	std::vector<Zombie*> zombies;
+	int zombieCount = 1;
 };
 
 #endif

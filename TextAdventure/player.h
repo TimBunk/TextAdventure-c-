@@ -12,6 +12,8 @@
 #include "item.h"
 #include "key.h"
 #include "medicine.h"
+#include "weapon.h"
+#include "gun.h"
 
 class Player
 {
