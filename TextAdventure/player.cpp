@@ -64,37 +64,6 @@ void Player::goRoom(Command cmd)
 	}
 }
 
-void Player::UnlockRoom(Command cmd)
-{
-	if (!cmd.hasSecondWord()) {
-		// if there is no second word, we don't know what to unlock...
-		std::cout << "Unlock what?" << std::endl;
-		return;
-	}
-
-	std::string direction = cmd.getSecondWord();
-
-	Room* nextRoom = currentRoom->getExit(direction);
-
-	if (nextRoom == NULL) {
-		std::cout << "There is no door!" << std::endl;
-	}
-	else if (nextRoom->CheckLock()) {
-		Item* key = backpack->GetItem(nextRoom->GetKeyName());
-		if (key == NULL) {
-			std::cout << "This door requires a " << nextRoom->GetKeyName() << std::endl;
-		}
-		else {
-			nextRoom->UnlockRoom(key->GetName());
-			std::cout << " but the " << key->GetName() <<" broke" << std::endl;
-			backpack->Remove(key->GetName());
-		}
-	}
-	else {
-		std::cout << "This door is already unlocked" << std::endl;
-	}
-}
-
 void Player::PrintHealth()
 {
 	std::cout << health << "/"  << maxHealth << std::endl;
@@ -245,7 +214,14 @@ void Player::UseItem(Command cmd)
 		// CHECK IF ITEM IS A KEY
 		else if (dynamic_cast<Key*>(item) != NULL) {
 			Key* key = dynamic_cast<Key*>(item);
-			key->Use();
+			key->Use(currentRoom);
+			if (key->Succeeded().compare("") != 0) {
+				std::cout << "you unlocked the room to your " << key->Succeeded() << " but the " << key->GetName() << " broke" << std::endl;
+				backpack->Remove(key->GetName());
+			}
+			else {
+				std::cout << "The key doesn't seem to fit any of the doors" << std::endl;
+			}
 		}
 		// CHECK IF ITEM IS A WEAPON
 		else if (dynamic_cast<Weapon*>(item) != NULL) {

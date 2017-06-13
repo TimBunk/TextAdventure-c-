@@ -213,8 +213,6 @@ bool Game::processCommand(Command cmd)
 		player->PrintHealth();
 	} else if (commandWord.compare("backpack") == 0) {
 		player->PrintBackpackInfo();
-	} else if (commandWord.compare("unlock") == 0) {
-		player->UnlockRoom(cmd);
 	} else if (commandWord.compare("pickup") == 0) {
 		player->PickUp(cmd);
 	} else if (commandWord.compare("drop") == 0) {

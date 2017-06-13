@@ -6,6 +6,8 @@
 
 #include "item.h"
 
+class Room;
+
 class Key : public Item
 {	
 	public:
@@ -13,9 +15,10 @@ class Key : public Item
 		Key(std::string name, int weight, std::string description);
 		~Key();
 
-		virtual void Use();
+		void Use(Room* room);
+		std::string Succeeded();
 
 	private:
-
+		std::string succeeded = "";
 };
 #endif

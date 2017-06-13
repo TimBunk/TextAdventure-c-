@@ -26,6 +26,7 @@ public:
 	std::string getLongDescription() { return "You are " + description + '\n' + getExitString(); }
 	std::string getShortDescription() { return "You are " + description; }
 	std::string getExitString();
+	std::vector<std::string> getExitsVector();
 	
 	void LockRoom(Key *key);
 	std::string GetKeyName();
@@ -48,12 +49,12 @@ private:
 	std::string name;
 	std::string description;
 	std::map<std::string, Room*> exits;
+	std::vector<std::string> exitsStrings;
 
 	Key* key;
 	bool lock = false;
 	
 	Inventory* items;
-	//std::vector<Item*> items;
 	std::vector<Zombie*> zombies;
 	int zombieCount = 1;
 };

@@ -23,7 +23,6 @@ public:
 	void setCurrentRoom(Room *room);
 	void describeRoom();
 	void goRoom(Command cmd);
-	void UnlockRoom(Command cmd);
 
 	void PrintHealth();
 	void ApplyDamage(int amount, bool startsBleeding);

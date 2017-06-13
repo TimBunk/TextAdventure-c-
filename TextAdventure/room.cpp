@@ -17,6 +17,7 @@ Room::~Room()
 void Room::setExit(std::string direction, Room* neighbor)
 {
 	exits[direction] = neighbor;
+	exitsStrings.push_back(direction);
 }
 
 Room* Room::getExit(std::string direction)
@@ -45,6 +46,11 @@ std::string Room::getExitString()
 	return returnString;
 }
 
+std::vector<std::string> Room::getExitsVector()
+{
+	return exitsStrings;
+}
+
 void Room::LockRoom(Key* key)
 {
 	lock = true;
@@ -59,7 +65,6 @@ std::string Room::GetKeyName()
 void Room::UnlockRoom(std::string keyName)
 {
 	if (this->key->GetName().compare(keyName) == 0) {
-		std::cout << "You unloced the room... ";
 		lock = false;
 	}
 }
@@ -94,7 +99,7 @@ void Room::PrintItems()
 	items->PrintInventory();
 }
 
-void Room::PlaceZombie(Zombie * zombie)
+void Room::PlaceZombie(Zombie* zombie)
 {
 	zombies.push_back(zombie);
 	std::string zombieName = "zombie." + std::to_string(zombieCount);
@@ -144,7 +149,6 @@ void Room::AttackZombie(int damage, int hitAmount)
 	while (it != zombies.end() && hits < hitAmount) {
 		(*it)->TakeDamage(damage);
 		if (!(*it)->IsAlive()) {
-			//std::cout << "You killed "<< (*it)->GetName() << std::endl;
 			it = zombies.erase(it);
 		}
 		else {
