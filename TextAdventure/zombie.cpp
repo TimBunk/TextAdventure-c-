@@ -13,15 +13,18 @@ Zombie::~Zombie()
 
 }
 
-void Zombie::DoDamage(Player* player)
+int Zombie::DoDamage()
 {
-	std::cout << "the player got attacked by "<< name << std::endl;
-	player->ApplyDamage(damage, appliesBleed);
+	return damage;
+}
+
+bool Zombie::AppliesBleed()
+{
+	return appliesBleed;
 }
 
 void Zombie::TakeDamage(int amount)
 {
-	//std::cout << name << " took " << amount << " damage" << std::endl;
 	health -= amount;
 }
 

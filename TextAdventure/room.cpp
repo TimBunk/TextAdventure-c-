@@ -1,4 +1,5 @@
 #include "room.h"
+#include "player.h"
 
 Room::Room(std::string name, std::string desc)
 {
@@ -136,10 +137,22 @@ void Room::PrintZombies()
 void Room::ZombiesAttack(Player* player)
 {
 	std::vector<Zombie*>::iterator it = zombies.begin();
+	int totalDamage = 0;
+	bool bleed = false;
 	while (it != zombies.end()) {
-		(*it)->DoDamage(player);
+		totalDamage += (*it)->DoDamage();
+		if (!bleed) {
+			bleed = (*it)->AppliesBleed();
+		}
 		++it;
 	}
+	if (zombies.size() > 1) {
+		std::cout << "you got attacked by the zombies" << std::endl;
+	}
+	else {
+		std::cout << "you got attacked by the zombie" << std::endl;
+	}
+	player->ApplyDamage(totalDamage, bleed);
 }
 
 void Room::AttackZombie(int damage, int hitAmount)
@@ -149,11 +162,14 @@ void Room::AttackZombie(int damage, int hitAmount)
 	while (it != zombies.end() && hits < hitAmount) {
 		(*it)->TakeDamage(damage);
 		if (!(*it)->IsAlive()) {
+			std::cout << "You killed " << (*it)->GetName();
 			it = zombies.erase(it);
 		}
 		else {
+			std::cout << (*it)->GetName() << " took " << damage << " damage";
 			++it;
 		}
+		std::cout << "  ";
 		hits++;
 	}
 }

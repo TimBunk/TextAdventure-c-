@@ -109,6 +109,7 @@ bool Player::IsAlive()
 		return true;
 	}
 	else {
+		std::cout << "you died" << std::endl;
 		return false;
 	}
 }
@@ -228,12 +229,14 @@ void Player::UseItem(Command cmd)
 			Weapon* weapon = dynamic_cast<Weapon*>(item);
 			if (currentRoom->ConatainsZombies()) {
 				weapon->Use(currentRoom);
-				if (currentRoom->ConatainsZombies()) {
-					currentRoom->PrintZombies();
-				}
 				if (!weapon->IsAlive()) {
 					std::cout << "but your " << weapon->GetName() << " broke" << std::endl;
 					backpack->Remove(weapon->GetName());
+				}
+				if (currentRoom->ConatainsZombies()) {
+					std::cout << std::endl;
+					std::cout << "remaining ";
+					currentRoom->PrintZombies();
 				}
 			}
 			else {

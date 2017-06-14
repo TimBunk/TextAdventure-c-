@@ -12,7 +12,8 @@ class Zombie {
 		Zombie(int health, int damage, bool appliesBleed);
 		~Zombie();
 
-		void DoDamage(Player* player);
+		int DoDamage();
+		bool AppliesBleed();
 		void TakeDamage(int amount);
 		bool IsAlive();
 		std::string GetInfo();

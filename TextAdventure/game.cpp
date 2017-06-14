@@ -152,7 +152,7 @@ void Game::createRooms()
 	// Create zombies
 	zombie = new Zombie(1, 2, true);
 	zombie2 = new Zombie(4, 1, true);
-	zombie3 = new Zombie(1, 1, false);
+	zombie3 = new Zombie(4, 1, false);
 	willowStreet->PlaceZombie(zombie);
 	willowStreet->PlaceZombie(zombie2);
 	willowStreet->PlaceZombie(zombie3);
@@ -163,15 +163,14 @@ void Game::createRooms()
 void Game::CreateItems()
 {
 	// create items
-	greenkey = new Key("greenkey", 9, "used to open doors");
+	greenkey = new Key("greenkey", 1, "used to open doors");
 	garage->LockRoom(greenkey);
 
-	bluekey = new Key("bluekey", 5, "used to open doors");
+	bluekey = new Key("bluekey", 1, "used to open doors");
 	house->PlaceItem(bluekey);
 
 	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2, true);
 	axe = new Weapon("axe", 2, "used to fight off zombies", "you swong your axe around you", 1, 3, 3);
-	//axe = new Weapon("axe", 1, "used to fight off the zombies", 1, 3);
 }
 
 void Game::play()
