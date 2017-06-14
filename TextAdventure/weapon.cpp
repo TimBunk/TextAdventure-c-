@@ -20,6 +20,12 @@ void Weapon::Use(Room* room)
 	DecreaseDurability();
 }
 
+std::string Weapon::GetInfo()
+{
+	std::string info = GetName() + ", weight: " + std::to_string(GetWeight()) + ", damage: " + std::to_string(damage)  + ", hitAmount: " + std::to_string(hitAmount) + ", durability: " + std::to_string(durability) + ", description: " + description;
+	return info;
+}
+
 bool Weapon::IsAlive()
 {
 	if (durability > 0) {

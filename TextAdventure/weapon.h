@@ -14,6 +14,7 @@ class Weapon : public Item {
 		~Weapon();
 
 		virtual void Use(Room* room);
+		virtual std::string GetInfo();
 
 		bool IsAlive();
 
