@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include <string>
-#include <array>
+#include <vector>
 
 #include "parser.h"
 #include "command.h"
@@ -27,6 +27,7 @@ private:
 	int color = 0;
 	void createRooms();
 	void CreateItems();
+	void UpdateRooms();
 	bool processCommand(Command cmd);
 	void printWelcome();
 	void printHelp();
@@ -35,6 +36,8 @@ private:
 	Parser parser;
 
 	//list with rooms
+	//std::vector
+	
 	Room* house;
 	Room* basement;
 	Room* garage;
@@ -54,7 +57,7 @@ private:
 	Room* pharmacy;
 	Room* backyard;
 	Room* sea;
-
+	std::vector<Room*> rooms;
 
 	//list with items
 	Key* rustyKey;

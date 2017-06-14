@@ -11,6 +11,8 @@ Game::Game()
 	
 	this->createRooms();
 	this->CreateItems();
+
+	UpdateRooms();
 }
 
 Game::~Game()
@@ -88,6 +90,9 @@ void Game::createRooms()
 	pharmacy = new Room("pharmacy", "inside a pharmacy");
 	backyard = new Room("backyard", "in the backyard of the abandond house");
 	sea = new Room("sea", "in front of the sea");
+
+	rooms = { house, basement, garage, neighboursHouse, willowStreet, willowStreet2, playground, shed, ridgeRoad, mainStreet, mainStreet2, shore,
+	weaponStore, parkingArea, park, abandondedHouse, pharmacy, backyard, sea };
 
 	// initialise room exits
 	house->setExit("north", willowStreet);
@@ -185,6 +190,15 @@ void Game::CreateItems()
 	weaponStore->PlaceItem(flamethrower);
 	bazooka = new Weapon("bazooka", 9, "shoots large missles that can blow away anyone", "you fired a big missle towards your opponents", 99, 99, 99);
 	weaponStore->PlaceItem(bazooka);
+}
+
+void Game::UpdateRooms()
+{
+	for (int i = 0; i < rooms.size(); i++) {
+		if (rooms[i]->ConatainsZombies()) {
+
+		}
+	}
 }
 
 void Game::play()

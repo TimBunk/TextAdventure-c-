@@ -173,3 +173,8 @@ void Room::AttackZombie(int damage, int hitAmount)
 	}
 	std::cout << std::endl;
 }
+
+void Room::Update()
+{
+
+}

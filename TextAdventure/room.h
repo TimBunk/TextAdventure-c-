@@ -44,6 +44,7 @@ public:
 	void PrintZombies();
 	void ZombiesAttack(Player* player);
 	void AttackZombie(int damage, int hitAmount);
+	void Update();
 
 private:
 	std::string name;
