@@ -57,10 +57,15 @@ private:
 
 
 	//list with items
-	Key* greenkey;
-	Key* bluekey;
+	Key* rustyKey;
+	Key* weaponStoreKey;
 	Medicine* bandage;
+	Medicine* firstAidKit;
 	Weapon* axe;
+	Weapon* baseballBat;
+	Weapon* handgun;
+	Weapon* flamethrower;
+	Weapon* bazooka;
 
 	//list with zombies
 	Zombie* zombie;

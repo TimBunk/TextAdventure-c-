@@ -11,6 +11,10 @@ Game::Game()
 	
 	this->createRooms();
 	this->CreateItems();
+
+	player->AddItem(greenkey);
+	player->AddItem(bandage);
+	player->AddItem(axe);
 }
 
 Game::~Game()
@@ -154,8 +158,8 @@ void Game::createRooms()
 	zombie2 = new Zombie(4, 1, true);
 	zombie3 = new Zombie(4, 1, false);
 	willowStreet->PlaceZombie(zombie);
-	park->PlaceZombie(zombie2);
-	playground->PlaceZombie(zombie3);
+	willowStreet->PlaceZombie(zombie2);
+	willowStreet->PlaceZombie(zombie3);
 	
 	this->player->setCurrentRoom(house);  // start game outside
 }
@@ -164,27 +168,23 @@ void Game::CreateItems()
 {
 	// create items
 	rustyKey = new Key("rustyKey", 1, "it looks like it might fit in a old house");
-	neighboursHouse->PlaceItem(rustyKey);
-	abandondedHouse->LockRoom(rustyKey);
 	weaponStoreKey = new Key("weaponstoreKey", 1, "this key belongs to the weapon store");
-	shed->PlaceItem(weaponStoreKey);
-	weaponStore->LockRoom(weaponStoreKey);
 
-	bandage = new Medicine("bandage", 1, "used to stop bleeding", 0, true);
-	basement->PlaceItem(bandage);
+	bandage = new Medicine("bandage", 1, "used to stop bleeding", 1, true);
 	firstAidKit = new Medicine("firstAidKit", 3, "used to patch yourself up", 5, true);
-	pharmacy->PlaceItem(firstAidKit);
 
 	axe = new Weapon("axe", 2, "can be used to slash your opponents", "you swong your axe around you", 1, 3, 3);
-	garage->PlaceItem(axe);
 	baseballBat = new Weapon("baseball bat", 4, "nice effective blunt weapon", "you smashed it on his head", 3, 1, 1);
-	shed->PlaceItem(baseballBat);
 	handgun = new Weapon("handgun", 3, "shoots strong bullets", "you fired a bullet", 5, 1, 2);
-	shore->PlaceItem(handgun);
-	flamethrower = new Weapon("flamethrower", 9, "shoots a large wave of fire", "you fired your flamethrower and melted away your opponents", 99, 99, 99);
-	weaponStore->PlaceItem(flamethrower);
-	bazooka = new Weapon("bazooka", 9, "shoots large missles that can blow away anyone", "you fired a big missle towards your opponents", 99, 99, 99);
-	weaponStore->PlaceItem(bazooka);
+	delete flamethrower;
+	delete bazooka;
+	greenkey = new Key("greenkey", 1, "used to open doors");
+	garage->LockRoom(greenkey);
+
+	bluekey = new Key("bluekey", 1, "used to open doors");
+	house->PlaceItem(bluekey);
+
+	
 }
 
 void Game::play()
