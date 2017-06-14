@@ -163,10 +163,10 @@ void Game::createRooms()
 void Game::CreateItems()
 {
 	// create items
-	greenkey = new Key("greenkey", 6, "used to open doors");
+	greenkey = new Key("greenkey", 9, "used to open doors");
 	garage->LockRoom(greenkey);
 
-	bluekey = new Key("bluekey", 1, "used to open doors");
+	bluekey = new Key("bluekey", 5, "used to open doors");
 	house->PlaceItem(bluekey);
 
 	bandage = new Medicine("bandage", 1, "used to stop bleeding", 2, true);
