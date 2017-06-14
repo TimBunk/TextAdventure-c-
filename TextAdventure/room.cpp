@@ -6,8 +6,7 @@ Room::Room(std::string name, std::string desc)
 	this->name = name;
 	this->description = desc;
 
-	int test = 10;
-	items = new Inventory(test);
+	items = new Inventory(999);
 }
 
 Room::~Room()
@@ -172,4 +171,5 @@ void Room::AttackZombie(int damage, int hitAmount)
 		std::cout << "  ";
 		hits++;
 	}
+	std::cout << std::endl;
 }

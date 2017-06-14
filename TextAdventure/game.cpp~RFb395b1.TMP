@@ -168,7 +168,7 @@ void Game::CreateItems()
 	abandondedHouse->LockRoom(rustyKey);
 	weaponStoreKey = new Key("weaponstorekey", 1, "this key belongs to the weapon store");
 	shed->PlaceItem(weaponStoreKey);
-	//weaponStore->LockRoom(weaponStoreKey);
+	weaponStore->LockRoom(weaponStoreKey);
 
 	bandage = new Medicine("bandage", 1, "used to stop bleeding", 0, true);
 	basement->PlaceItem(bandage);
@@ -243,8 +243,8 @@ void Game::printWelcome()
 	std::cout << "EscapeTheZombies is a new exciting text adventure." << std::endl;
 	
 	std::cout << std::endl;
-	std::cout << "It is early in the morning you just woke up and hear someone knocking really loudly on your front door." << std::endl;
-	std::cout << "You look through the window and see a zombie standing in front of your door!" << std::endl;
+	std::cout << "It is early in the morning you just woke up and hear someone knocking really loudly on you're front door." << std::endl;
+	std::cout << "You look through the window and see a zombie standing in front of you're door!" << std::endl;
 	std::cout << "Rather quikly you find out that there is a zombie apocalypse going on." << std::endl;
 	std::cout << "You're goal is to escape from the zombies." << std::endl;
 
