@@ -12,7 +12,7 @@ Game::Game()
 	this->createRooms();
 	this->CreateItems();
 
-	UpdateRooms();
+	player->AddItem(axe);
 }
 
 Game::~Game()
@@ -173,7 +173,7 @@ void Game::CreateItems()
 	abandondedHouse->LockRoom(rustyKey);
 	weaponStoreKey = new Key("weaponstorekey", 1, "this key belongs to the weapon store");
 	shed->PlaceItem(weaponStoreKey);
-	//weaponStore->LockRoom(weaponStoreKey);
+	weaponStore->LockRoom(weaponStoreKey);
 
 	bandage = new Medicine("bandage", 1, "used to stop bleeding", 0, true);
 	basement->PlaceItem(bandage);
@@ -195,9 +195,7 @@ void Game::CreateItems()
 void Game::UpdateRooms()
 {
 	for (int i = 0; i < rooms.size(); i++) {
-		if (rooms[i]->ConatainsZombies()) {
-
-		}
+		rooms[i]->UpdateZombies();
 	}
 }
 
@@ -208,6 +206,7 @@ void Game::play()
 	bool finished = false;
 	while ( !finished ) {
 		ChangeColor();
+		UpdateRooms();
 		Command command = parser.getCommand();
 		finished = processCommand(command);
 		if (!finished && !player->IsAlive()) {

@@ -44,7 +44,7 @@ public:
 	void PrintZombies();
 	void ZombiesAttack(Player* player);
 	void AttackZombie(int damage, int hitAmount);
-	void Update();
+	void UpdateZombies();
 
 private:
 	std::string name;
@@ -57,7 +57,10 @@ private:
 	
 	Inventory* items;
 	std::vector<Zombie*> zombies;
+	void RespawnZombie(Zombie* zombie);
+	std::vector<Zombie*> deadZombies;
 	int zombieCount = 1;
+	int zombieRespawnTime = 3;
 };
 
 #endif

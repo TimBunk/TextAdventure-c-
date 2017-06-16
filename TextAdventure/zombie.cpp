@@ -4,6 +4,7 @@
 Zombie::Zombie(int health, int damage, bool appliesBleed)
 {
 	this->health = health;
+	this->originalHealth = health;
 	this->damage = damage;
 	this->appliesBleed = appliesBleed;
 }
@@ -50,4 +51,20 @@ void Zombie::GiveName(std::string name)
 std::string Zombie::GetName()
 {
 	return name;
+}
+
+void Zombie::IncreaseDeathTime()
+{
+	deadCount++;
+}
+
+int Zombie::BeenDeadFor()
+{
+	return deadCount;
+}
+
+void Zombie::Respawned()
+{
+	deadCount = 0;
+	health = originalHealth;
 }

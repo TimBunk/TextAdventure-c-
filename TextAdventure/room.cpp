@@ -162,6 +162,7 @@ void Room::AttackZombie(int damage, int hitAmount)
 		(*it)->TakeDamage(damage);
 		if (!(*it)->IsAlive()) {
 			std::cout << "You killed " << (*it)->GetName();
+			deadZombies.push_back((*it));
 			it = zombies.erase(it);
 		}
 		else {
@@ -174,7 +175,26 @@ void Room::AttackZombie(int damage, int hitAmount)
 	std::cout << std::endl;
 }
 
-void Room::Update()
+void Room::UpdateZombies()
 {
+	if (deadZombies.size() <= 0) {
+		return;
+	}
+	std::vector<Zombie*>::iterator it = deadZombies.begin();
+	while (it != deadZombies.end()) {
+		if ((*it)->BeenDeadFor() == zombieRespawnTime) {
+			RespawnZombie((*it));
+			it = deadZombies.erase(it);
+		}
+		else {
+			(*it)->IncreaseDeathTime();
+			++it;
+		}
+	}
+}
 
+void Room::RespawnZombie(Zombie* zombie)
+{
+	zombie->Respawned();
+	zombies.push_back(zombie);
 }
