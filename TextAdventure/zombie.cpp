@@ -1,12 +1,13 @@
 #include "zombie.h"
 #include "player.h"
 
-Zombie::Zombie(int health, int damage, bool appliesBleed)
+Zombie::Zombie(int health, int damage, bool appliesBleed, int respawnTime)
 {
 	this->health = health;
 	this->originalHealth = health;
 	this->damage = damage;
 	this->appliesBleed = appliesBleed;
+	this->respawnTime = respawnTime;
 }
 
 Zombie::~Zombie()
@@ -58,9 +59,12 @@ void Zombie::IncreaseDeathTime()
 	deadCount++;
 }
 
-int Zombie::BeenDeadFor()
+bool Zombie::RespawnAvailable()
 {
-	return deadCount;
+	if (deadCount >= respawnTime) {
+		return true;
+	}
+	return false;
 }
 
 void Zombie::Respawned()

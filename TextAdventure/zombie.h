@@ -9,7 +9,7 @@ class Player;
 class Zombie {
 
 	public:
-		Zombie(int health, int damage, bool appliesBleed);
+		Zombie(int health, int damage, bool appliesBleed, int respawnTime);
 		~Zombie();
 
 		int DoDamage();
@@ -20,7 +20,7 @@ class Zombie {
 		void GiveName(std::string name);
 		std::string GetName();
 		void IncreaseDeathTime();
-		int BeenDeadFor();
+		bool RespawnAvailable();
 		void Respawned();
 
 	protected:
@@ -31,6 +31,7 @@ class Zombie {
 		int originalHealth;
 		int damage;
 		bool appliesBleed;
+		int respawnTime;
 		int deadCount = 0;
 };
 

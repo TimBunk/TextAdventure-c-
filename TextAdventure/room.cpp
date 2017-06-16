@@ -182,7 +182,7 @@ void Room::UpdateZombies()
 	}
 	std::vector<Zombie*>::iterator it = deadZombies.begin();
 	while (it != deadZombies.end()) {
-		if ((*it)->BeenDeadFor() == zombieRespawnTime) {
+		if ((*it)->RespawnAvailable()) {
 			RespawnZombie((*it));
 			it = deadZombies.erase(it);
 		}

@@ -10,6 +10,7 @@ Game::Game()
 	player = new Player(10,10);
 	
 	this->createRooms();
+	this->CreateZombies();
 	this->CreateItems();
 
 	player->AddItem(axe);
@@ -153,16 +154,19 @@ void Game::createRooms()
 	backyard->setExit("south", abandondedHouse);
 
 	sea->setExit("south", backyard);
+	
+	this->player->setCurrentRoom(house);  // start game outside
+}
 
+void Game::CreateZombies()
+{
 	// Create zombies
-	zombie = new Zombie(1, 2, true);
-	zombie2 = new Zombie(4, 1, true);
-	zombie3 = new Zombie(4, 1, false);
+	zombie = new Zombie(1, 2, true, 5);
+	zombie2 = new Zombie(4, 1, true, 3);
+	zombie3 = new Zombie(4, 1, false, 3);
 	willowStreet->PlaceZombie(zombie);
 	park->PlaceZombie(zombie2);
 	playground->PlaceZombie(zombie3);
-	
-	this->player->setCurrentRoom(house);  // start game outside
 }
 
 void Game::CreateItems()

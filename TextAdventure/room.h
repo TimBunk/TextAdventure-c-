@@ -60,7 +60,6 @@ private:
 	void RespawnZombie(Zombie* zombie);
 	std::vector<Zombie*> deadZombies;
 	int zombieCount = 1;
-	int zombieRespawnTime = 3;
 };
 
 #endif

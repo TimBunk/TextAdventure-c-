@@ -26,6 +26,7 @@ private:
 	void ChangeColor();
 	int color = 0;
 	void createRooms();
+	void CreateZombies();
 	void CreateItems();
 	void UpdateRooms();
 	bool processCommand(Command cmd);
