@@ -33,7 +33,7 @@ Game::~Game()
 	delete weaponStore;
 	delete parkingArea;
 	delete park;
-	delete abandondedHouse;
+	delete abandonedHouse;
 	delete pharmacy;
 	delete backyard;
 	delete sea;
@@ -87,13 +87,13 @@ void Game::createRooms()
 	weaponStore = new Room("weapon store", "inside of the weaponStore");
 	parkingArea = new Room("parking area", "on the parking area");
 	park = new Room("park", "in the park");
-	abandondedHouse = new Room("abandonded house", "inside a abandond house");
+	abandonedHouse = new Room("abandoned house", "inside an abandoned house");
 	pharmacy = new Room("pharmacy", "inside a pharmacy");
 	backyard = new Room("backyard", "in the backyard of the abandond house");
 	sea = new Room("sea", "in front of the sea");
 
 	rooms = { house, basement, garage, neighboursHouse, willowStreet, willowStreet2, playground, shed, ridgeRoad, mainStreet, mainStreet2, shore,
-	weaponStore, parkingArea, park, abandondedHouse, pharmacy, backyard, sea };
+	weaponStore, parkingArea, park, abandonedHouse, pharmacy, backyard, sea };
 
 	// initialise room exits
 	house->setExit("north", willowStreet);
@@ -124,7 +124,7 @@ void Game::createRooms()
 	ridgeRoad->setExit("north", parkingArea);
 	ridgeRoad->setExit("south", willowStreet);
 
-	mainStreet->setExit("north", abandondedHouse);
+	mainStreet->setExit("north", abandonedHouse);
 	mainStreet->setExit("east", mainStreet2);
 	mainStreet->setExit("south", playground);
 	
@@ -141,17 +141,17 @@ void Game::createRooms()
 	parkingArea->setExit("south", ridgeRoad);
 	parkingArea->setExit("west", weaponStore);
 	
-	park->setExit("east", abandondedHouse);
+	park->setExit("east", abandonedHouse);
 	park->setExit("west", parkingArea);
 
-	abandondedHouse->setExit("north", backyard);
-	abandondedHouse->setExit("south", mainStreet);
-	abandondedHouse->setExit("west", park);
+	abandonedHouse->setExit("north", backyard);
+	abandonedHouse->setExit("south", mainStreet);
+	abandonedHouse->setExit("west", park);
 
 	pharmacy->setExit("south", parkingArea);
 
 	backyard->setExit("north", sea);
-	backyard->setExit("south", abandondedHouse);
+	backyard->setExit("south", abandonedHouse);
 
 	sea->setExit("south", backyard);
 	
@@ -177,9 +177,9 @@ void Game::CreateZombies()
 void Game::CreateItems()
 {
 	// create items
-	rustyKey = new Key("rustykey", 1, "it looks like it might fit in a old house");
+	rustyKey = new Key("rustykey", 1, "it looks like it might fit in an old house");
 	neighboursHouse->PlaceItem(rustyKey);
-	abandondedHouse->LockRoom(rustyKey);
+	abandonedHouse->LockRoom(rustyKey);
 	weaponStoreKey = new Key("weaponstorekey", 1, "this key belongs to the weapon store");
 	shed->PlaceItem(weaponStoreKey);
 	weaponStore->LockRoom(weaponStoreKey);
@@ -227,6 +227,9 @@ void Game::play()
 		}
 	}
 	std::cout << "Thank you for playing. Goodbye!" << std::endl;
+	std::cout << "Press any key to continue...." << std::endl;
+	std::string fix;
+	std::getline(std::cin, fix);
 }
 
 bool Game::processCommand(Command cmd)
@@ -275,7 +278,7 @@ void Game::printWelcome()
 	std::cout << "You're goal is to escape from the zombies." << std::endl;
 
 	std::cout << std::endl;
-	std::cout << "NOTE! When confronting a zombie you have to kill him, otherwise the zombie will attack you and you take damage and start bleeding!" << std::endl;
+	std::cout << "NOTE! When confronting a zombie you have to kill him, otherwise the zombie will attack you and you take damage and there is a change you start bleeding!" << std::endl;
 	std::cout << "Also zombies will respawn after a certain time" << std::endl;
 
 	std::cout << "Type 'help' if you need help." << std::endl;

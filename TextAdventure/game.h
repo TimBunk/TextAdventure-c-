@@ -54,7 +54,7 @@ private:
 	Room* weaponStore;
 	Room* parkingArea;
 	Room* park;
-	Room* abandondedHouse;
+	Room* abandonedHouse;
 	Room* pharmacy;
 	Room* backyard;
 	Room* sea;
