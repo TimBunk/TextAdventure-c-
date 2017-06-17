@@ -55,13 +55,28 @@ void Player::goRoom(Command cmd)
 			std::cout << "You are bleeding" << std::endl;
 			ApplyDamage(1, false);
 		}
-		if (currentRoom->ConatainsZombies()) {
+		if (currentRoom->ConatainsZombies() && IsAlive()) {
 			currentRoom->ZombiesAttack(this);
 		}
+		if (!IsAlive()) {
+			return;
+		}
+
 		currentRoom = nextRoom;
-		
-		describeRoom();
+
+		if (currentRoom->CheckIfFinalRoom()) {
+			reachedFinalRoom = true;
+			currentRoom->PrintFinalRoom();
+		}
+		else {
+			describeRoom();
+		}
 	}
+}
+
+bool Player::ReachedFinalRoom()
+{
+	return reachedFinalRoom;
 }
 
 void Player::PrintHealth()
@@ -109,7 +124,6 @@ bool Player::IsAlive()
 		return true;
 	}
 	else {
-		std::cout << "you died" << std::endl;
 		return false;
 	}
 }
@@ -122,7 +136,7 @@ void Player::PrintBackpackInfo()
 
 void Player::AddItem(Item* item)
 {
-	if (item->GetWeight() + backpack->GetCurrentWeight() < backpack->GetCapacity()) {
+	if (item->GetWeight() + backpack->GetCurrentWeight() <= backpack->GetCapacity()) {
 		backpack->Add(item);
 		std::cout << "added " << item->GetName() << " to your backpack"<< std::endl;
 		std::cout << "inventory Capacity = " << backpack->GetCurrentWeight() << "/" << backpack->GetCapacity() << std::endl;

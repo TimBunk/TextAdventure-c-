@@ -19,6 +19,10 @@ public:
 	Room(std::string name, std::string desc);
 	virtual ~Room();
 
+	void SetToFinalRoom(std::string desc);
+	bool CheckIfFinalRoom();
+	void PrintFinalRoom();
+
 	void setExit(std::string direction, Room* neighbor);
 	Room* getExit(std::string direction);
 
@@ -47,6 +51,8 @@ public:
 	void UpdateZombies();
 
 private:
+	std::string finalRoomDesc;
+	bool finalRoom = false;
 	std::string name;
 	std::string description;
 	std::map<std::string, Room*> exits;

@@ -75,6 +75,8 @@ private:
 	Zombie* zombie;
 	Zombie* zombie2;
 	Zombie* zombie3;
+	Zombie* zombie4;
+	Zombie* zombie5;
 };
 
 #endif

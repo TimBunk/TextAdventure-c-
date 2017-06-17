@@ -23,6 +23,7 @@ public:
 	void setCurrentRoom(Room *room);
 	void describeRoom();
 	void goRoom(Command cmd);
+	bool ReachedFinalRoom();
 
 	void PrintHealth();
 	void ApplyDamage(int amount, bool startsBleeding);
@@ -36,6 +37,7 @@ public:
 	void UseItem(Command cmd);
 
 private:
+	bool reachedFinalRoom = false;
 	Room* currentRoom;
 	Inventory* backpack;
 

@@ -14,6 +14,22 @@ Room::~Room()
 	delete items;
 }
 
+void Room::SetToFinalRoom(std::string desc)
+{
+	finalRoomDesc = desc;
+	finalRoom = true;
+}
+
+bool Room::CheckIfFinalRoom()
+{
+	return finalRoom;
+}
+
+void Room::PrintFinalRoom()
+{
+	std::cout << finalRoomDesc << std::endl;
+}
+
 void Room::setExit(std::string direction, Room* neighbor)
 {
 	exits[direction] = neighbor;

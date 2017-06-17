@@ -12,8 +12,6 @@ Game::Game()
 	this->createRooms();
 	this->CreateZombies();
 	this->CreateItems();
-
-	player->AddItem(axe);
 }
 
 Game::~Game()
@@ -53,6 +51,8 @@ Game::~Game()
 	delete zombie;
 	delete zombie2;
 	delete zombie3;
+	delete zombie4;
+	delete zombie5;
 }
 
 void Game::ChangeColor()
@@ -155,18 +155,23 @@ void Game::createRooms()
 
 	sea->setExit("south", backyard);
 	
-	this->player->setCurrentRoom(house);  // start game outside
+	sea->SetToFinalRoom("You see a boat pulling over with some military guys they are yelling to you to get on the boat, so you do and you escaped from the zombies."); // end game at the sea
+	this->player->setCurrentRoom(house);  // start game in house
 }
 
 void Game::CreateZombies()
 {
 	// Create zombies
 	zombie = new Zombie(1, 2, true, 5);
-	zombie2 = new Zombie(4, 1, true, 3);
-	zombie3 = new Zombie(4, 1, false, 3);
 	willowStreet->PlaceZombie(zombie);
+	zombie2 = new Zombie(4, 1, true, 3);
 	park->PlaceZombie(zombie2);
+	zombie3 = new Zombie(4, 1, false, 3);
 	playground->PlaceZombie(zombie3);
+	zombie4 = new Zombie(50, 99, false, 1);
+	backyard->PlaceZombie(zombie4);
+	zombie5 = new Zombie(50, 99, false, 1);
+	backyard->PlaceZombie(zombie5);
 }
 
 void Game::CreateItems()
@@ -214,6 +219,10 @@ void Game::play()
 		Command command = parser.getCommand();
 		finished = processCommand(command);
 		if (!finished && !player->IsAlive()) {
+			std::cout << "you died" << std::endl;
+			finished = true;
+		}
+		else if (!finished && player->ReachedFinalRoom()) {
 			finished = true;
 		}
 	}
@@ -267,7 +276,7 @@ void Game::printWelcome()
 
 	std::cout << std::endl;
 	std::cout << "NOTE! When confronting a zombie you have to kill him, otherwise the zombie will attack you and you take damage and start bleeding!" << std::endl;
-	std::cout << "Zombies will respawn after you travelled 3 times to another location" << std::endl;
+	std::cout << "Also zombies will respawn after a certain time" << std::endl;
 
 	std::cout << "Type 'help' if you need help." << std::endl;
 	std::cout << std::endl;
