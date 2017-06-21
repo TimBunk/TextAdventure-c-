@@ -23,8 +23,7 @@ public:
 	void play();
 
 private:
-	void ChangeColor();
-	int color = 0;
+	void SwapColor();
 	void createRooms();
 	void CreateZombies();
 	void CreateItems();
@@ -32,13 +31,13 @@ private:
 	bool processCommand(Command cmd);
 	void printWelcome();
 	void printHelp();
+	
+	int color;
 
 	Player* player;
 	Parser parser;
 
-	//list with rooms
-	//std::vector
-	
+	//Creates all rooms
 	Room* house;
 	Room* basement;
 	Room* garage;

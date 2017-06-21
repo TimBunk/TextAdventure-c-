@@ -6,7 +6,8 @@
 
 Game::Game()
 {
-	ChangeColor();
+	color = 0;
+	SwapColor();
 	player = new Player(10,10);
 	
 	this->createRooms();
@@ -55,7 +56,7 @@ Game::~Game()
 	delete zombie5;
 }
 
-void Game::ChangeColor()
+void Game::SwapColor()
 {
 	switch (color) {
 		case 0:
@@ -92,8 +93,25 @@ void Game::createRooms()
 	backyard = new Room("backyard", "in the backyard of the abandond house");
 	sea = new Room("sea", "in front of the sea");
 
-	rooms = { house, basement, garage, neighboursHouse, willowStreet, willowStreet2, playground, shed, ridgeRoad, mainStreet, mainStreet2, shore,
-	weaponStore, parkingArea, park, abandonedHouse, pharmacy, backyard, sea };
+	rooms.push_back(house);
+	rooms.push_back(basement);
+	rooms.push_back(garage);
+	rooms.push_back(neighboursHouse);
+	rooms.push_back(willowStreet);
+	rooms.push_back(willowStreet2);
+	rooms.push_back(playground);
+	rooms.push_back(shed);
+	rooms.push_back(ridgeRoad);
+	rooms.push_back(mainStreet);
+	rooms.push_back(mainStreet2);
+	rooms.push_back(shore);
+	rooms.push_back(weaponStore);
+	rooms.push_back(parkingArea);
+	rooms.push_back(park);
+	rooms.push_back(abandonedHouse);
+	rooms.push_back(pharmacy);
+	rooms.push_back(backyard);
+	rooms.push_back(sea);
 
 	// initialise room exits
 	house->setExit("north", willowStreet);
@@ -214,7 +232,7 @@ void Game::play()
 
 	bool finished = false;
 	while ( !finished ) {
-		ChangeColor();
+		SwapColor();
 		UpdateRooms();
 		Command command = parser.getCommand();
 		finished = processCommand(command);
