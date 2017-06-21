@@ -13,8 +13,8 @@ class Weapon : public Item {
 		Weapon(std::string name, int weight, std::string description, std::string attackDescription, int damage, int hitAmount, int durability);
 		~Weapon();
 
-		virtual void Use(Room* room);
-		virtual std::string GetInfo();
+		void Use(Room* room);
+		std::string GetInfo();
 
 		bool IsAlive();
 

@@ -14,8 +14,8 @@ class Medicine : public Item {
 		Medicine(std::string name, int weight, std::string description, int healing, bool stopsBleeding);
 		~Medicine();
 
-		virtual std::string GetInfo();
-		virtual void Use(Player* player);
+		std::string GetInfo();
+		void Use(Player* player);
 
 		bool StopsBleeding();
 		bool Healing();
